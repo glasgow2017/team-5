@@ -1,0 +1,31 @@
+General ideas for talking points:
+First:
+talk about what we're trying to solve, problem break down(high level)
+
+Second:
+Implementation details, design probs, arguments, team organisations, challenges,
+
+
+More specific ideas:
+
+Use globe in all slides?
+First Presentation:
+
+Lets put ourselves in their shoes
+
+Problems that women in poorer countries face (prevalence of violence, education limited, employment)
+
+Approach to improvement (create game to test people knowledge on their country, showing them steps to improve things)
+
+Our game (globe, obstacle course thing?)
+
+Second Presentation:
+Challenges faced (Terrible API, team organisation)
+
+Terrible API (how we solved?)
+
+Team organisation (how we solved?)
+
+Limits of our implementation (only a single data source?)
+
+How it could be extended (add more data sources)
