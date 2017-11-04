@@ -42,7 +42,7 @@ var score;
 var hasCollided;
 var isPaused=false;
 var threeTreeTimer = 10000;
-var scoreTree = 0;
+var scoreTree;
 
 function init() {
 	// set up the scene
@@ -394,7 +394,7 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
-		if(score-scoreTree==8)
+		if(score-scoreTree==8 && scoreTree==null)
 		{
 			isPaused=true;
 		}
