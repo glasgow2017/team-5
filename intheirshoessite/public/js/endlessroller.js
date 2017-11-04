@@ -392,7 +392,13 @@ function update(){
 		if((score+1)%15==0)
 		{
 			addThreeTrees();
+			scoreTree=score+1;
 		}
+		if(score-scoreTree==8)
+		{
+			isPaused=true;
+		}
+
     	if(!hasCollided){
 			score+=2*treeReleaseInterval;
 			scoreText.innerHTML=score.toString();
