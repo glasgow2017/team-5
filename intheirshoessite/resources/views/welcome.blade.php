@@ -28,7 +28,7 @@
 
         function initialize(lat,lng,country) {
                 var earth = new WE.map('earth_div');
-                WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(earth);
+                WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.png').addTo(earth);
 
                 var marker = WE.marker([lat,lng]).addTo(earth);
                 marker.bindPopup(country, {maxWidth: 150, closeButton: true}).openPopup();
