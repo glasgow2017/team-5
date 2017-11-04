@@ -13,7 +13,7 @@ var ground;
 var orbitControl;
 var rollingGroundSphere;
 var heroSphere;
-var rollingSpeed=0.008;
+var rollingSpeed=0.003;
 var heroRollingSpeed;
 var worldRadius=26;
 var heroRadius=0.2;
