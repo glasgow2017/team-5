@@ -41,7 +41,7 @@ var scoreText;
 var score;
 var hasCollided;
 var isPaused=false;
-var threeTreeTimer = 100000;
+var threeTreeTimer = 10000;
 
 
 function init() {
@@ -256,7 +256,7 @@ function addThreeTrees(){
 	addTree(true,options[0]);
   	addTree(true,options[1]);
 	addTree(true,options[2]);
-	setTimeout(function(){console.log("t3")},3000);
+	setTimeout(function(){console.log("t3")},10000);
 	isPaused = true;
 }
 function addWorldTrees(){
