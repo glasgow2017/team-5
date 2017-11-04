@@ -415,14 +415,13 @@ function update(){
 				inputValidator: function (result) {
 				return new Promise(function (resolve, reject) {
 					if (result) {
-					resolve();
+					resolve()
 					} else {
 					reject('You need to select something!')
 					}
 				})
 				}
 			}).then(function (result) {
-				console.log("IS IT HERE?");
 				isPaused=false;
 				update();
 			})
