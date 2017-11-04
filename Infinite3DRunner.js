@@ -238,5 +238,50 @@ function addLight(){
 	sun.shadow.camera.near = 0.5;
 	sun.shadow.camera.far = 50 ;
 }
+function addPathTree(){
+	var options=[0,1,2];
+	var lane= Math.floor(Math.random()*3);
+	addTree(true,lane);
+	options.splice(lane,1);
+	if(Math.random()>0.5){
+		lane= Math.floor(Math.random()*2);
+		addTree(true,options[lane]);
+	}
+}
+function addWorldTrees(){
+	var numTrees=36;
+	var gap=6.28/36;
+	for(var i=0;i<numTrees;i++){
+		addTree(false,i*gap, true);
+		addTree(false,i*gap, false);
+	}
+}
+function addTree(inPath, row, isLeft){
+	var newTree;
+	if(inPath){
+		if(treesPool.length==0)return;
+		newTree=treesPool.pop();
+		newTree.visible=true;
+		//console.log("add tree");
+		treesInPath.push(newTree);
+		sphericalHelper.set( worldRadius-0.3, pathAngleValues[row], -rollingGroundSphere.rotation.x+4 );
+	}else{
+		newTree=createTree();
+		var forestAreaAngle=0;//[1.52,1.57,1.62];
+		if(isLeft){
+			forestAreaAngle=1.68+Math.random()*0.1;
+		}else{
+			forestAreaAngle=1.46-Math.random()*0.1;
+		}
+		sphericalHelper.set( worldRadius-0.3, forestAreaAngle, row );
+	}
+	newTree.position.setFromSpherical( sphericalHelper );
+	var rollingGroundVector=rollingGroundSphere.position.clone().normalize();
+	var treeVector=newTree.position.clone().normalize();
+	newTree.quaternion.setFromUnitVectors(treeVector,rollingGroundVector);
+	newTree.rotation.x+=(Math.random()*(2*Math.PI/10))+-Math.PI/10;
+	
+	rollingGroundSphere.add(newTree);
+}
 
 
