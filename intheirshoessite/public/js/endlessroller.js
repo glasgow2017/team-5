@@ -416,6 +416,7 @@ function update(){
 				return new Promise(function (resolve, reject) {
 					if (result) {
 					resolve();
+					console.log("IS IT REALLY HERE?");
 					isPaused=false;
 					} else {
 					reject('You need to select something!')
@@ -423,6 +424,7 @@ function update(){
 				})
 				}
 			}).then(function (result) {
+				console.log("IS IT HERE?");
 				isPaused=false;
 			})
 		}
