@@ -385,9 +385,19 @@ function update(){
 		}
     }
     doTreeLogic();
-    doExplosionLogic();
-    render();
-	requestAnimationFrame(update);//request next update
+	doExplosionLogic();
+	render();
+	if(paused)
+	{
+		setTimeout(function(){alert("Hello")},3000);
+		requestAnimationFrame(update);//request next update
+		paused=false;
+	}
+	else
+	{
+		requestAnimationFrame(update);//request next update
+	}
+	
 }
 function doTreeLogic(){
 	var oneTree;
