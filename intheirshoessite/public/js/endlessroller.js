@@ -374,6 +374,7 @@ function tightenTree(vertices,sides,currentTier){
 }
 
 function update(){
+	$('#TutContainer').keyup();
 	if(isPaused) return;
 	stats.update();
     //animate
@@ -424,7 +425,6 @@ function update(){
 			}).then(function (result) {
 				isPaused=false;
 				update();
-				$('#TutContainer').keyup();
 			})
 		}
 
