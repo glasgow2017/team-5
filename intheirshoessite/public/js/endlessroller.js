@@ -389,7 +389,7 @@ function update(){
     if(clock.getElapsedTime()>treeReleaseInterval){
     	clock.start();
 		addPathTree();
-		if(score%15==0)
+		if((score+1)%15==0)
 		{
 			addThreeTrees();
 		}
