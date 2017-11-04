@@ -255,7 +255,8 @@ function addThreeTrees(){
 	var options = [0,1,2];
 	addTree(true,options[0]);
   	addTree(true,options[1]);
-  	addTree(true,options[2]);
+	  addTree(true,options[2]);
+	  console.log("T3");
 	isPaused = true;
 }
 function addWorldTrees(){
