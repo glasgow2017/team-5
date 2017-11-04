@@ -388,7 +388,8 @@ function update(){
     bounceValue-=gravity;
     if(clock.getElapsedTime()>treeReleaseInterval){
     	clock.start();
-    	addPathTree();
+		addPathTree();
+		setInterval(addThreeTrees, threeTreeTimer);
     	if(!hasCollided){
 			score+=2*treeReleaseInterval;
 			scoreText.innerHTML=score.toString();
@@ -398,7 +399,7 @@ function update(){
 	doExplosionLogic();
 	render();
 	requestAnimationFrame(update);//request next update
-	setInterval(addThreeTrees, threeTreeTimer);
+	
 	
 }
 function doTreeLogic(){
