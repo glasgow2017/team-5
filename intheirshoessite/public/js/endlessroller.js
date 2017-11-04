@@ -40,6 +40,7 @@ var stats;
 var scoreText;
 var score;
 var hasCollided;
+var r = true;
 
 function init() {
 	// set up the scene
@@ -381,8 +382,11 @@ function update(){
 		}
     }
     doTreeLogic();
-    doExplosionLogic();
-    render();
+	doExplosionLogic();
+	if (r){
+		render();
+	}
+	r = false;	
 	requestAnimationFrame(update);//request next update
 }
 function doTreeLogic(){
