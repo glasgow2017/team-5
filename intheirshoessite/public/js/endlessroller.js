@@ -427,6 +427,7 @@ function update(){
 				data = {"keyCode":38};
 				handleKeyDown(data);
 			})
+			scoreTree=null;
 		}
 
     	// if(!hasCollided){
