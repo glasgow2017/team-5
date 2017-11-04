@@ -13,7 +13,7 @@ var ground;
 var orbitControl;
 var rollingGroundSphere;
 var heroSphere;
-var rollingSpeed=0.008;
+var rollingSpeed=0.003;
 var heroRollingSpeed;
 var worldRadius=26;
 var heroRadius=0.2;
@@ -255,8 +255,8 @@ function addThreeTrees(){
 	var options = [0,1,2];
 	addTree(true,options[0]);
   	addTree(true,options[1]);
-	  addTree(true,options[2]);
-	  console.log("T3");
+	addTree(true,options[2]);
+	setTimeout(function(){},3000);
 	isPaused = true;
 }
 function addWorldTrees(){
