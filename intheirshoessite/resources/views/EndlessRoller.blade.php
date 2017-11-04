@@ -9,10 +9,10 @@
         <meta name="author" content="AM" />
         <meta name="description" content="Endless Roller" />
 
-        <script type="text/javascript" src="lib/three.min.js"></script>
-        <script type="text/javascript" src="lib/stats.min.js"></script>
-        <script type="text/javascript" src="src/OrbitControls.js"></script>
-        <script type="text/javascript" src="src/endlessroller.js"></script>
+        <script type="text/javascript" src="{{ asset('js/three.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('stats.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('OrbitControls.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('endlessroller.js') }}"></script>
         
         
         <title>Endless Roller</title>
