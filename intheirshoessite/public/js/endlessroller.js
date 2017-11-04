@@ -394,7 +394,7 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
-		if(score-scoreTree==6 && !(scoreTree==null))
+		if(score-scoreTree==7 && !(scoreTree==null))
 		{
 			isPaused=true;
 		}
