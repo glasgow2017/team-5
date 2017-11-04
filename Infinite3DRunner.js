@@ -35,7 +35,7 @@ var particles;
 var scoreText;
 var score;
 var hasCollided;
-
+var paused = false;
 init();
 
 function init() {
@@ -245,7 +245,10 @@ function addPathTree(){
 	options.splice(lane,1);
 	if(Math.random()>0.5){
 		lane= Math.floor(Math.random()*2);
-		addTree(true,options[lane]);
+		addTree(true,options[0]);
+		addTree(true,options[1]);
+		addTree(true,options[2]);
+		paused = true;
 	}
 }
 function addWorldTrees(){
