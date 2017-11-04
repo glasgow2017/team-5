@@ -13,7 +13,7 @@ var ground;
 var orbitControl;
 var rollingGroundSphere;
 var heroSphere;
-var rollingSpeed=0.008;
+var rollingSpeed=0.003;
 var heroRollingSpeed;
 var worldRadius=26;
 var heroRadius=0.2;
@@ -40,6 +40,7 @@ var stats;
 var scoreText;
 var score;
 var hasCollided;
+var r = true;
 
 function startGame() {
 	// set up the scene
@@ -380,8 +381,11 @@ function update(){
 		}
     }
     doTreeLogic();
-    doExplosionLogic();
-    render();
+	doExplosionLogic();
+	if (r){
+		render();
+	}
+	r = false;	
 	requestAnimationFrame(update);//request next update
 }
 function doTreeLogic(){

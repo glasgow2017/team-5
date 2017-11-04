@@ -222,9 +222,9 @@ THREE.OrbitControls = function ( object, domElement ) {
 		scope.domElement.removeEventListener( 'mousedown', onMouseDown, false );
 		scope.domElement.removeEventListener( 'wheel', onMouseWheel, false );
 
-		scope.domElement.removeEventListener( 'touchstart', onTouchStart, false );
-		scope.domElement.removeEventListener( 'touchend', onTouchEnd, false );
-		scope.domElement.removeEventListener( 'touchmove', onTouchMove, false );
+		// scope.domElement.removeEventListener( 'touchstart', onTouchStart, false );
+		// scope.domElement.removeEventListener( 'touchend', onTouchEnd, false );
+		// scope.domElement.removeEventListener( 'touchmove', onTouchMove, false );
 
 		document.removeEventListener( 'mousemove', onMouseMove, false );
 		document.removeEventListener( 'mouseup', onMouseUp, false );
