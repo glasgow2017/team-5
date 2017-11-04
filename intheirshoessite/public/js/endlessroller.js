@@ -42,7 +42,7 @@ var score;
 var hasCollided;
 var isPaused=false;
 var threeTreeTimer = 10000;
-
+var scoreTree = 0;
 
 function init() {
 	// set up the scene
