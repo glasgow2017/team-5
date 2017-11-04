@@ -127,3 +127,11 @@ function addExplosion(){
 	scene.add( particles );
 	particles.visible=false;
 }
+function createTreesPool(){
+	var maxTreesInPool=10;
+	var newTree;
+	for(var i=0; i<maxTreesInPool;i++){
+		newTree=createTree();
+		treesPool.push(newTree);
+	}
+}
