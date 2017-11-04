@@ -399,10 +399,10 @@ function update(){
 			isPaused=true;
 		}
 
-    	if(!hasCollided){
+    	// if(!hasCollided){
 			score+=2*treeReleaseInterval;
 			scoreText.innerHTML=score.toString();
-		}
+		// }
     }
     doTreeLogic();
 	doExplosionLogic();
