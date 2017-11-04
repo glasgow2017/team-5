@@ -385,8 +385,40 @@ function update(){
 	doExplosionLogic();
 	if (r){
 		render();
+		r = false;
 	}
-	r = false;	
+	else{
+		var inputOptions = new Promise(function (resolve) {
+			setTimeout(function () {
+			  resolve({
+				'#ff0000': 'Red',
+				'#00ff00': 'Green',
+				'#0000ff': 'Blue'
+			  })
+			}, 2000)
+		  })
+		  
+		  swal({
+			title: 'Select color',
+			input: 'radio',
+			inputOptions: inputOptions,
+			inputValidator: function (result) {
+			  return new Promise(function (resolve, reject) {
+				if (result) {
+				  resolve()
+				} else {
+				  reject('You need to select something!')
+				}
+			  })
+			}
+		  }).then(function (result) {
+			  r = true;
+			swal({
+			  type: 'success',
+			  html: 'You selected: ' + result
+			})
+		  })
+	}
 	requestAnimationFrame(update);//request next update
 }
 function doTreeLogic(){
