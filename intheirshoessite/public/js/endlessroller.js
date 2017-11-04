@@ -1,6 +1,6 @@
 /*global THREE*/
 /*global Stats*/
-window.addEventListener('load', startGame, false);
+window.addEventListener('load', init, false);
 
 var sceneWidth;
 var sceneHeight;
@@ -13,7 +13,7 @@ var ground;
 var orbitControl;
 var rollingGroundSphere;
 var heroSphere;
-var rollingSpeed=0.003;
+var rollingSpeed=0.008;
 var heroRollingSpeed;
 var worldRadius=26;
 var heroRadius=0.2;
@@ -40,11 +40,11 @@ var stats;
 var scoreText;
 var score;
 var hasCollided;
-var r = true;
 
-function startGame() {
+function init() {
 	// set up the scene
 	createScene();
+
 	//call game loop
 	update();
 }
@@ -96,7 +96,6 @@ function createScene(){
 	window.addEventListener('resize', onWindowResize, false);//resize callback
 
 	document.onkeydown = handleKeyDown;
-	document.addEventListener('touchstart', onDamnTouch, false);
 	
 	scoreText = document.createElement('div');
 	scoreText.style.position = 'absolute';
@@ -130,9 +129,6 @@ function createTreesPool(){
 		newTree=createTree();
 		treesPool.push(newTree);
 	}
-}
-function onDamnTouch(){
-	
 }
 function handleKeyDown(keyEvent){
 	if(jumping)return;
@@ -381,11 +377,8 @@ function update(){
 		}
     }
     doTreeLogic();
-	doExplosionLogic();
-	if (r){
-		render();
-	}
-	r = false;	
+    doExplosionLogic();
+    render();
 	requestAnimationFrame(update);//request next update
 }
 function doTreeLogic(){
