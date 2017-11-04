@@ -244,7 +244,7 @@ function addPathTree(){
   	addTree(true,lane);
 	options.splice(lane,1);
   
-  	setInterval(addThreeTrees, threeTreeTimer + randTime);
+  	
 	//if(Math.random()>0.5)
 		//lane= Math.floor(Math.random()*2);
     	//addTree(true, lane);
@@ -398,7 +398,7 @@ function update(){
 	doExplosionLogic();
 	render();
 	requestAnimationFrame(update);//request next update
-	
+	setInterval(addThreeTrees, threeTreeTimer + randTime);
 	
 }
 function doTreeLogic(){
