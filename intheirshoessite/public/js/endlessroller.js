@@ -415,7 +415,8 @@ function update(){
 				inputValidator: function (result) {
 				return new Promise(function (resolve, reject) {
 					if (result) {
-					resolve()
+					resolve();
+					isPaused=false;
 					} else {
 					reject('You need to select something!')
 					}
