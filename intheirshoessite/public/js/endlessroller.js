@@ -257,7 +257,7 @@ function addThreeTrees(){
   	addTree(true,options[1]);
 	addTree(true,options[2]);
 	setTimeout(function(){console.log("t3")},10000);
-	isPaused = true;
+	// isPaused = true;
 }
 function addWorldTrees(){
 	var numTrees=36;
