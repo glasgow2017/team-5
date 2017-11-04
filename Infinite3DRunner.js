@@ -283,5 +283,176 @@ function addTree(inPath, row, isLeft){
 	
 	rollingGroundSphere.add(newTree);
 }
+function createTree(){
+	var sides=8;
+	var tiers=6;
+	var scalarMultiplier=(Math.random()*(0.25-0.1))+0.05;
+	var midPointVector= new THREE.Vector3();
+	var vertexVector= new THREE.Vector3();
+	var treeGeometry = new THREE.ConeGeometry( 0.5, 1, sides, tiers);
+	var treeMaterial = new THREE.MeshStandardMaterial( { color: 0x33ff33,shading:THREE.FlatShading  } );
+	var offset;
+	midPointVector=treeGeometry.vertices[0].clone();
+	var currentTier=0;
+	var vertexIndex;
+	blowUpTree(treeGeometry.vertices,sides,0,scalarMultiplier);
+	tightenTree(treeGeometry.vertices,sides,1);
+	blowUpTree(treeGeometry.vertices,sides,2,scalarMultiplier*1.1,true);
+	tightenTree(treeGeometry.vertices,sides,3);
+	blowUpTree(treeGeometry.vertices,sides,4,scalarMultiplier*1.2);
+	tightenTree(treeGeometry.vertices,sides,5);
+	var treeTop = new THREE.Mesh( treeGeometry, treeMaterial );
+	treeTop.castShadow=true;
+	treeTop.receiveShadow=false;
+	treeTop.position.y=0.9;
+	treeTop.rotation.y=(Math.random()*(Math.PI));
+	var treeTrunkGeometry = new THREE.CylinderGeometry( 0.1, 0.1,0.5);
+	var trunkMaterial = new THREE.MeshStandardMaterial( { color: 0x886633,shading:THREE.FlatShading  } );
+	var treeTrunk = new THREE.Mesh( treeTrunkGeometry, trunkMaterial );
+	treeTrunk.position.y=0.25;
+	var tree =new THREE.Object3D();
+	tree.add(treeTrunk);
+	tree.add(treeTop);
+	return tree;
+}
+function blowUpTree(vertices,sides,currentTier,scalarMultiplier,odd){
+	var vertexIndex;
+	var vertexVector= new THREE.Vector3();
+	var midPointVector=vertices[0].clone();
+	var offset;
+	for(var i=0;i<sides;i++){
+		vertexIndex=(currentTier*sides)+1;
+		vertexVector=vertices[i+vertexIndex].clone();
+		midPointVector.y=vertexVector.y;
+		offset=vertexVector.sub(midPointVector);
+		if(odd){
+			if(i%2===0){
+				offset.normalize().multiplyScalar(scalarMultiplier/6);
+				vertices[i+vertexIndex].add(offset);
+			}else{
+				offset.normalize().multiplyScalar(scalarMultiplier);
+				vertices[i+vertexIndex].add(offset);
+				vertices[i+vertexIndex].y=vertices[i+vertexIndex+sides].y+0.05;
+			}
+		}else{
+			if(i%2!==0){
+				offset.normalize().multiplyScalar(scalarMultiplier/6);
+				vertices[i+vertexIndex].add(offset);
+			}else{
+				offset.normalize().multiplyScalar(scalarMultiplier);
+				vertices[i+vertexIndex].add(offset);
+				vertices[i+vertexIndex].y=vertices[i+vertexIndex+sides].y+0.05;
+			}
+		}
+	}
+}
+function tightenTree(vertices,sides,currentTier){
+	var vertexIndex;
+	var vertexVector= new THREE.Vector3();
+	var midPointVector=vertices[0].clone();
+	var offset;
+	for(var i=0;i<sides;i++){
+		vertexIndex=(currentTier*sides)+1;
+		vertexVector=vertices[i+vertexIndex].clone();
+		midPointVector.y=vertexVector.y;
+		offset=vertexVector.sub(midPointVector);
+		offset.normalize().multiplyScalar(0.06);
+		vertices[i+vertexIndex].sub(offset);
+	}
+}
+
+function update(){
+	//stats.update();
+    //animate
+    rollingGroundSphere.rotation.x += rollingSpeed;
+    heroSphere.rotation.x -= heroRollingSpeed;
+    if(heroSphere.position.y<=heroBaseY){
+    	jumping=false;
+    	bounceValue=(Math.random()*0.04)+0.005;
+    }
+    heroSphere.position.y+=bounceValue;
+    heroSphere.position.x=THREE.Math.lerp(heroSphere.position.x,currentLane, 2*clock.getDelta());//clock.getElapsedTime());
+    bounceValue-=gravity;
+    if(clock.getElapsedTime()>treeReleaseInterval){
+    	clock.start();
+    	addPathTree();
+    	if(!hasCollided){
+			score+=2*treeReleaseInterval;
+			scoreText.innerHTML=score.toString();
+		}
+    }
+    doTreeLogic();
+    doExplosionLogic();
+    render();
+	requestAnimationFrame(update);//request next update
+}
+function doTreeLogic(){
+	var oneTree;
+	var treePos = new THREE.Vector3();
+	var treesToRemove=[];
+	treesInPath.forEach( function ( element, index ) {
+		oneTree=treesInPath[ index ];
+		treePos.setFromMatrixPosition( oneTree.matrixWorld );
+		if(treePos.z>6 &&oneTree.visible){//gone out of our view zone
+			treesToRemove.push(oneTree);
+		}else{//check collision
+			if(treePos.distanceTo(heroSphere.position)<=0.6){
+				console.log("hit");
+				hasCollided=true;
+				explode();
+			}
+		}
+	});
+	var fromWhere;
+	treesToRemove.forEach( function ( element, index ) {
+		oneTree=treesToRemove[ index ];
+		fromWhere=treesInPath.indexOf(oneTree);
+		treesInPath.splice(fromWhere,1);
+		treesPool.push(oneTree);
+		oneTree.visible=false;
+		console.log("remove tree");
+	});
+}
+function doExplosionLogic(){
+	if(!particles.visible)return;
+	for (var i = 0; i < particleCount; i ++ ) {
+		particleGeometry.vertices[i].multiplyScalar(explosionPower);
+	}
+	if(explosionPower>1.005){
+		explosionPower-=0.001;
+	}else{
+		particles.visible=false;
+	}
+	particleGeometry.verticesNeedUpdate = true;
+}
+function explode(){
+	particles.position.y=2;
+	particles.position.z=4.8;
+	particles.position.x=heroSphere.position.x;
+	for (var i = 0; i < particleCount; i ++ ) {
+		var vertex = new THREE.Vector3();
+		vertex.x = -0.2+Math.random() * 0.4;
+		vertex.y = -0.2+Math.random() * 0.4 ;
+		vertex.z = -0.2+Math.random() * 0.4;
+		particleGeometry.vertices[i]=vertex;
+	}
+	explosionPower=1.07;
+	particles.visible=true;
+}
+function render(){
+    renderer.render(scene, camera);//draw
+}
+function gameOver () {
+  //cancelAnimationFrame( globalRenderID );
+  //window.clearInterval( powerupSpawnIntervalID );
+}
+function onWindowResize() {
+	//resize & align
+	sceneHeight = window.innerHeight;
+	sceneWidth = window.innerWidth;
+	renderer.setSize(sceneWidth, sceneHeight);
+	camera.aspect = sceneWidth/sceneHeight;
+	camera.updateProjectionMatrix();
+}
 
 
