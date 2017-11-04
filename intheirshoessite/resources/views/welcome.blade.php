@@ -22,7 +22,7 @@
         <h1 style="font-size:3.5em;margin-top:10%;">
             In their shoes
         </h1>
-        <img src="{{ URL::asset('img/front-page-girl.PNG') }}" style="margin-top:-3%;width:600px;margin-left:40px;"/>
+        <img src="{{ asset('img/front-page-girl.png') }}" style="margin-top:-3%;width:600px;margin-left:40px;"/>
 
         <script>
 
