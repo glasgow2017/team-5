@@ -40,6 +40,8 @@ var stats;
 var scoreText;
 var score;
 var hasCollided;
+var isPaused=true;
+
 
 function init() {
 	// set up the scene
@@ -357,6 +359,7 @@ function tightenTree(vertices,sides,currentTier){
 }
 
 function update(){
+	if(isPaused) return;
 	stats.update();
     //animate
     rollingGroundSphere.rotation.x += rollingSpeed;
@@ -377,9 +380,11 @@ function update(){
 		}
     }
     doTreeLogic();
-    doExplosionLogic();
-    render();
+	doExplosionLogic();
+	render();
 	requestAnimationFrame(update);//request next update
+	
+	
 }
 function doTreeLogic(){
 	var oneTree;
