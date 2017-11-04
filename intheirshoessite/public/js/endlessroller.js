@@ -398,7 +398,7 @@ function update(){
 	doExplosionLogic();
 	render();
 	requestAnimationFrame(update);//request next update
-	setInterval(addThreeTrees, threeTreeTimer + randTime);
+	setInterval(addThreeTrees, threeTreeTimer);
 	
 }
 function doTreeLogic(){
