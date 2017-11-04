@@ -113,3 +113,17 @@ function createScene(){
 	infoText.style.left = 10 + 'px';
 	document.body.appendChild(infoText);
 }
+function addExplosion(){
+	particleGeometry = new THREE.Geometry();
+	for (var i = 0; i < particleCount; i ++ ) {
+		var vertex = new THREE.Vector3();
+		particleGeometry.vertices.push( vertex );
+	}
+	var pMaterial = new THREE.ParticleBasicMaterial({
+	  color: 0xfffafa,
+	  size: 0.2
+	});
+	particles = new THREE.Points( particleGeometry, pMaterial );
+	scene.add( particles );
+	particles.visible=false;
+}
