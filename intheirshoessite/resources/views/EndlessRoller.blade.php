@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        <div id="TutContainer"></div>
+        <div style="zoom:0.3;" id="TutContainer" ></div>
         
     </body>
 

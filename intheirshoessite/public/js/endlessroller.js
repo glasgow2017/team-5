@@ -1,6 +1,6 @@
 /*global THREE*/
 /*global Stats*/
-window.addEventListener('load', init, false);
+window.addEventListener('load', startGame, false);
 
 var sceneWidth;
 var sceneHeight;
@@ -42,10 +42,9 @@ var score;
 var hasCollided;
 var r = true;
 
-function init() {
+function startGame() {
 	// set up the scene
 	createScene();
-
 	//call game loop
 	update();
 }
