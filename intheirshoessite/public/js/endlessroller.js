@@ -424,7 +424,7 @@ function update(){
 			}).then(function (result) {
 				isPaused=false;
 				update();
-				$('item').keyup();
+				$('#TutContainer').keyup();
 			})
 		}
 
