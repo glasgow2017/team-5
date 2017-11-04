@@ -397,6 +397,33 @@ function update(){
 		if(score-scoreTree==7 && !(scoreTree==null))
 		{
 			isPaused=true;
+			// inputOptions can be an object or Promise
+			var inputOptions = new Promise(function (resolve) {
+				setTimeout(function () {
+				resolve({
+					'#ff0000': 'Red',
+					'#00ff00': 'Green',
+					'#0000ff': 'Blue'
+				})
+				}, 100)
+			})
+			
+			swal({
+				title: 'Select color',
+				input: 'radio',
+				inputOptions: inputOptions,
+				inputValidator: function (result) {
+				return new Promise(function (resolve, reject) {
+					if (result) {
+					resolve()
+					} else {
+					reject('You need to select something!')
+					}
+				})
+				}
+			}).then(function (result) {
+				isPaused=false;
+			})
 		}
 
     	// if(!hasCollided){
