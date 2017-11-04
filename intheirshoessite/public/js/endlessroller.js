@@ -40,7 +40,8 @@ var stats;
 var scoreText;
 var score;
 var hasCollided;
-var isPaused=true;
+var isPaused=false;
+var threeTreeTimer = 1000;
 
 
 function init() {
@@ -238,12 +239,24 @@ function addLight(){
 function addPathTree(){
 	var options=[0,1,2];
 	var lane= Math.floor(Math.random()*3);
-	addTree(true,lane);
+  	var randTime = Math.floor(Math.random()*1000);
+	//addTree(true,lane);
+  	addTree(true,lane);
 	options.splice(lane,1);
-	if(Math.random()>0.5){
-		lane= Math.floor(Math.random()*2);
-		addTree(true,options[lane]);
-	}
+  
+  	setInterval(addThreeTrees, threeTreeTimer + randTime);
+	//if(Math.random()>0.5)
+		//lane= Math.floor(Math.random()*2);
+    	//addTree(true, lane);
+    	//obstacle = true;
+  	//
+}
+function addThreeTrees(){
+	var options = [0,1,2];
+	addTree(true,options[0]);
+  	addTree(true,options[1]);
+  	addTree(true,options[2]);
+	isPaused = true;
 }
 function addWorldTrees(){
 	var numTrees=36;
