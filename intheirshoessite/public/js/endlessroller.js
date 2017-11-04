@@ -424,6 +424,7 @@ function update(){
 			}).then(function (result) {
 				isPaused=false;
 				update();
+				$.keyup();
 			})
 		}
 
