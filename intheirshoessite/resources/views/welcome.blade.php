@@ -26,12 +26,12 @@
 
         <script>
 
-        function initialize(lat,lng,country) {
+        function initialize(lat,lng,country,whatToSend) {
                 var earth = new WE.map('earth_div');
                 WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.png').addTo(earth);
 
                 var marker = WE.marker([lat,lng]).addTo(earth);
-                marker.bindPopup(country, {maxWidth: 150, closeButton: true}).openPopup();
+                marker.bindPopup(country+"<br>"+whatToSend, {maxWidth: 150, closeButton: true}).openPopup();
 
                 earth.setView([lat, lng], 3);
                 }
@@ -39,11 +39,13 @@
             $(document).ready(function()
             {
                 $.get("http://ip-api.com/json", function(response) {
-                    initialize(response.lat,response.lon,response.country);
+                    var whatToSend = "<h3> Your Country is Good, but do you know this one?";
+                    initialize(response.lat,response.lon,response.country,whatToSend);
+                    
                 });
             });
                 
-
+            
     
     </script> 
 
