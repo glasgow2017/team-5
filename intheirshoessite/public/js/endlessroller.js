@@ -1,3 +1,8 @@
+/*global THREE*/
+/*global Stats*/
+window.addEventListener('load', init, false);
+
+var sceneWidth;
 var sceneHeight;
 var camera;
 var scene;
@@ -5,10 +10,10 @@ var renderer;
 var dom;
 var sun;
 var ground;
-//var orbitControl;
+var orbitControl;
 var rollingGroundSphere;
 var heroSphere;
-var rollingSpeed=0.008;
+var rollingSpeed=0.003;
 var heroRollingSpeed;
 var worldRadius=26;
 var heroRadius=0.2;
@@ -31,12 +36,13 @@ var particleGeometry;
 var particleCount=20;
 var explosionPower =1.06;
 var particles;
-//var stats;
+var stats;
 var scoreText;
 var score;
 var hasCollided;
-var paused = false;
-init();
+var isPaused=false;
+var threeTreeTimer = 100000;
+
 
 function init() {
 	// set up the scene
@@ -68,8 +74,8 @@ function createScene(){
     renderer.setSize( sceneWidth, sceneHeight );
     dom = document.getElementById('TutContainer');
 	dom.appendChild(renderer.domElement);
-	//stats = new Stats();
-	//dom.appendChild(stats.dom);
+	stats = new Stats();
+	dom.appendChild(stats.dom);
 	createTreesPool();
 	addWorld();
 	addHero();
@@ -77,9 +83,11 @@ function createScene(){
 	addExplosion();
 	
 	camera.position.z = 6.5;
-	camera.position.y = 2.5;
-	/*orbitControl = new THREE.OrbitControls( camera, renderer.domElement );//helper to rotate around in scene
+	camera.position.y = 3.5;
+	orbitControl = new THREE.OrbitControls( camera, renderer.domElement );//helper to rotate around in scene
 	orbitControl.addEventListener( 'change', render );
+	//orbitControl.enableDamping = true;
+	//orbitControl.dampingFactor = 0.8;
 	orbitControl.noKeys = true;
 	orbitControl.noPan = true;
 	orbitControl.enableZoom = false;
@@ -87,7 +95,7 @@ function createScene(){
 	orbitControl.maxPolarAngle = 1.1;
 	orbitControl.minAzimuthAngle = -0.2;
 	orbitControl.maxAzimuthAngle = 0.2;
-	*/
+	
 	window.addEventListener('resize', onWindowResize, false);//resize callback
 
 	document.onkeydown = handleKeyDown;
@@ -99,19 +107,9 @@ function createScene(){
 	scoreText.style.height = 100;
 	//scoreText.style.backgroundColor = "blue";
 	scoreText.innerHTML = "0";
-	scoreText.style.top = 50 + 'px';
-	scoreText.style.left = 10 + 'px';
+	scoreText.style.top = 10 + 'px';
+	scoreText.style.left = 100 + 'px';
 	document.body.appendChild(scoreText);
-  
-  var infoText = document.createElement('div');
-	infoText.style.position = 'absolute';
-	infoText.style.width = 100;
-	infoText.style.height = 100;
-	infoText.style.backgroundColor = "yellow";
-	infoText.innerHTML = "UP - Jump, Left/Right - Move";
-	infoText.style.top = 10 + 'px';
-	infoText.style.left = 10 + 'px';
-	document.body.appendChild(infoText);
 }
 function addExplosion(){
 	particleGeometry = new THREE.Geometry();
@@ -241,15 +239,25 @@ function addLight(){
 function addPathTree(){
 	var options=[0,1,2];
 	var lane= Math.floor(Math.random()*3);
-	addTree(true,lane);
+  	var randTime = Math.floor(Math.random()*1000);
+	//addTree(true,lane);
+  	addTree(true,lane);
 	options.splice(lane,1);
-	if(Math.random()>0.5){
-		lane= Math.floor(Math.random()*2);
-		addTree(true,options[0]);
-		addTree(true,options[1]);
-		addTree(true,options[2]);
-		paused = true;
-	}
+  
+  	setInterval(addThreeTrees, threeTreeTimer + randTime);
+	//if(Math.random()>0.5)
+		//lane= Math.floor(Math.random()*2);
+    	//addTree(true, lane);
+    	//obstacle = true;
+  	//
+}
+function addThreeTrees(){
+	var options = [0,1,2];
+	addTree(true,options[0]);
+  	addTree(true,options[1]);
+	addTree(true,options[2]);
+	setTimeout(function(){console.log("t3")},3000);
+	isPaused = true;
 }
 function addWorldTrees(){
 	var numTrees=36;
@@ -365,7 +373,8 @@ function tightenTree(vertices,sides,currentTier){
 }
 
 function update(){
-	//stats.update();
+	if(isPaused) return;
+	stats.update();
     //animate
     rollingGroundSphere.rotation.x += rollingSpeed;
     heroSphere.rotation.x -= heroRollingSpeed;
@@ -385,9 +394,11 @@ function update(){
 		}
     }
     doTreeLogic();
-    doExplosionLogic();
-    render();
+	doExplosionLogic();
+	render();
 	requestAnimationFrame(update);//request next update
+	
+	
 }
 function doTreeLogic(){
 	var oneTree;
@@ -457,4 +468,3 @@ function onWindowResize() {
 	camera.aspect = sceneWidth/sceneHeight;
 	camera.updateProjectionMatrix();
 }
-
