@@ -108,7 +108,7 @@ function createScene(){
 	document.onkeydown = handleKeyDown;
 	
 	scoreText = document.createElement('div');
-	// scoreText.style.position = 'absolute';
+	scoreText.style.position = 'absolute';
 	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	scoreText.style.width = 100;
 	scoreText.style.height = 100;
@@ -119,10 +119,12 @@ function createScene(){
 	document.body.appendChild(scoreText);
 
 	healthText = document.createElement('div2');
-	// healthText.style.position = 'absolute';
+	healthText.style.position = 'absolute';
 	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	healthText.style.width = 100;
 	healthText.style.height = 100;
+	healthText.style.bottom = 100+"px";
+	healthText.style.textAlign = "center";
 	//scoreText.style.backgroundColor = "blue";
 	healthText.innerHTML = "0";
 	// healthText.style.top = 100 + 'px';
