@@ -649,6 +649,8 @@ function healthScore()
 	health-=10;
 	healthText.innerHTML="Health : "+health.toString();
 	called=true;
+	if(health==0)
+	actualGameOver();
 }
 
 function doTreeLogic(){
