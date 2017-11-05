@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class dataset1 extends Model
 {
-    protected $table = "dataset1";
+    protected $table = "worldbankdata";
     public $timestamps = false;
 }
