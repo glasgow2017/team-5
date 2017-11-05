@@ -214,7 +214,7 @@
     <script type="text/javascript" src="{{ asset('js/OrbitControls.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/endlessroller.js') }}"></script>
 
-    <h3 style="margin-top:5%;text-align:center;"> Thank you for being part of this demonstration and raising awareness together</h3>
+    <h3 style="margin-top:5%;text-align:center;"> Thank you for being part of this demonstration and raising awareness together.</h3>
 
 </body>
      
