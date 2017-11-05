@@ -70,7 +70,7 @@
                 }).addTo(map);
 
                 marker = WE.marker([lat,lng]).addTo(map);
-                marker.bindPopup(country+"<br>"+whatToSend, {width:100%,closeButton: true}).openPopup();
+                marker.bindPopup(country+"<br>"+whatToSend, {width:100,closeButton: true}).openPopup();
 
                 map.setView([lat, lng], 3);
                 }
