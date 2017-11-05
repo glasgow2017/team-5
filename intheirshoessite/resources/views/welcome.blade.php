@@ -53,7 +53,8 @@
         <script>
         var map;
         var marker;
-
+        var countryData;
+        
         function initialize(lat,lng,country,whatToSend) {
             
                 map = WE.map('map', {
@@ -114,6 +115,8 @@
                            console.log(res[i].country);
                            if(res[i].country==response.country)
                            {
+                               countryData = res[i];
+
                                if(res[i]["SE.ADT.LITR.FE.ZS"]!=0)
                                 {
                                     value = parseInt(res[i]["SE.ADT.LITR.FE.ZS"]);

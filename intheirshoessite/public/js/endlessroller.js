@@ -44,6 +44,9 @@ var isPaused=false;
 var threeTreeTimer = 10000;
 var scoreTree;
 
+
+var choice = "SG.LAW.CHMR";
+
 function init() {
 	// set up the scene
 	createScene();
@@ -393,26 +396,25 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
+
 		if(score-scoreTree==7 && !(scoreTree==null))
 		{
 			
-		}
-		if(score-scoreTree==7 && !(scoreTree==null))
-		{
 			isPaused=true;
 			// inputOptions can be an object or Promise
-			var inputOptions = new Promise(function (resolve) {
-				setTimeout(function () {
-				resolve({
-					'#ff0000': 'Red',
-					'#00ff00': 'Green',
-					'#0000ff': 'Blue'
+			if(choice == "SG.LAW.CHMR")
+			{
+				var inputOptions = new Promise(function (resolve) {
+					setTimeout(function () {
+					resolve({
+						'0': 'No!',
+						'1': 'Yeah!'
+					})
+					}, 100)
 				})
-				}, 100)
-			})
 			
 			swal({
-				title: 'Select color',
+				title: 'Does your country have law against child marriages?',
 				input: 'radio',
 				inputOptions: inputOptions,
 				inputValidator: function (result) {
@@ -425,16 +427,101 @@ function update(){
 				})
 				}
 			}).then(function (result) {
-				console.log(result);
-				isPaused=false;
-				update();
-				upKey = {"keyCode":38};
-				handleKeyDown(upKey);
-			})
-			treesInPath=[];
-			treesPool=[];
-			createTreesPool();
-			scoreTree=null;
+				if(result==countryData['SG.LAW.CHMR'])
+				{
+					swal({
+						title: 'Yeah!!',
+						text: "You got it right!",
+						type: 'success',
+						}).then(function () {
+							isPaused=false;
+							update();
+							upKey = {"keyCode":38};
+							handleKeyDown(upKey);
+						})
+				}
+				else
+				{
+					swal({
+						title: 'Oops...',
+						text: "Sorry you messed up!",
+						type: 'error',
+						}).then(function () {
+							isPaused=false;
+							update();
+						})
+					}
+				
+				
+				})
+				treesInPath=[];
+				treesPool=[];
+				createTreesPool();
+				scoreTree=null;
+				choice = "SH.STA.MMRT";
+			}
+			else if(choice=="SH.STA.MMRT")
+			{
+				getData = ["31","225","410","10"];
+				opt = shuffle(getData);
+				var inputOptions = new Promise(function (resolve) {
+					setTimeout(function () {
+					resolve({
+						'0': opt[0],
+						'1': opt[1],
+						'2': opt[2],
+						'3': opt[3]
+					})
+					}, 100)
+				})
+			
+			swal({
+				title: 'How many maternal deaths per 100,000 people, do you think your country has?',
+				input: 'radio',
+				inputOptions: inputOptions,
+				inputValidator: function (result) {
+				return new Promise(function (resolve, reject) {
+					if (result) {
+					resolve()
+					} else {
+					reject('You need to select something!')
+					}
+				})
+				}
+			}).then(function (result) {
+				if(result==countryData['SG.LAW.CHMR'])
+				{
+					swal({
+						title: 'Yeah!!',
+						text: "You got it right!",
+						type: 'success',
+						}).then(function () {
+							isPaused=false;
+							update();
+							upKey = {"keyCode":38};
+							handleKeyDown(upKey);
+						})
+				}
+				else
+				{
+					swal({
+						title: 'Oops...',
+						text: "Sorry you messed up!",
+						type: 'error',
+						}).then(function () {
+							isPaused=false;
+							update();
+						})
+					}
+				
+				
+				})
+				treesInPath=[];
+				treesPool=[];
+				createTreesPool();
+				scoreTree=null;
+				choice = "SP.MTR.1519.ZS";
+			}
 		}
 
     	// if(!hasCollided){
