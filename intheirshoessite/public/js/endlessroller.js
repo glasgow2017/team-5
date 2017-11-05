@@ -470,6 +470,8 @@ function update(){
 						type: 'error',
 						}).then(function () {
 							isPaused=false;
+							health-=10;
+							healthText.innerHTML="Health : "+health.toString();
 							update();
 						})
 					}
@@ -533,6 +535,8 @@ function update(){
 						type: 'error',
 						}).then(function () {
 							isPaused=false;
+							health-=10;
+							healthText.innerHTML="Health : "+health.toString();
 							update();
 						})
 					}
@@ -597,6 +601,8 @@ function update(){
 						type: 'error',
 						}).then(function () {
 							isPaused=false;
+							health-=10;
+							healthText.innerHTML="Health : "+health.toString();
 							update();
 						})
 					}

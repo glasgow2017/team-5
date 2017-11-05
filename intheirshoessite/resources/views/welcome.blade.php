@@ -72,12 +72,10 @@
                 map.setView([lat, lng], 3);
                 }
             
-                function changeViewAndAddMarkers(lat,lng,country,whatToSend)
+                function AddMarkers(lat,lng)
                 {
                     var marker1 = WE.marker([lat, lng]).addTo(map);
-                    marker1.bindPopup(country+"<br>"+whatToSend, {closeButton: true}).openPopup();
                     map.panTo([lat,lng]);
-                    startGame();
                 }
             
                 function shuffle(array) {
@@ -197,6 +195,13 @@
             });
     
     
+    locations = [];
+    for(var i = 0; i<locations.length;i++)
+    {
+        AddMarkers
+    }
+
+
     </script> 
    
 
