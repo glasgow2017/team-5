@@ -45,7 +45,7 @@ var isPaused=false;
 var threeTreeTimer = 10000;
 var scoreTree;
 var health=100;
-var points;
+var points=0;
 var pointsText;
 
 
@@ -759,7 +759,7 @@ function actualGameOver()
 	isPaused=true;
 	swal({
 		title: 'Thank you!!',
-		text: "Thank you for your participation! Your score was : "+points+" out of 4",
+		text: "Thank you for your participation! Your score was : "+str(points)+" out of 3",
 		type: 'success',
 		}).then(function () {
 			marker.closePopup();
