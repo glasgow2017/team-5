@@ -408,13 +408,10 @@ function update(){
 					setTimeout(function () {
 					resolve({
 						'0': 'No!',
-						'1': 'Hell yeah!'
+						'1': 'Yeah!'
 					})
 					}, 100)
 				})
-			}
-
-			
 			
 			swal({
 				title: 'Does your country have law against child marriages?',
@@ -453,14 +450,20 @@ function update(){
 							isPaused=false;
 							update();
 						})
-				}
-
+					}
 				
-			})
-			treesInPath=[];
-			treesPool=[];
-			createTreesPool();
-			scoreTree=null;
+				
+				})
+				treesInPath=[];
+				treesPool=[];
+				createTreesPool();
+				scoreTree=null;
+				choice = "SH.STA.MMRT";
+			}
+			else(choice=="SH.STA.MMRT")
+			{
+				console.log("it will work I guess");
+			}
 		}
 
     	// if(!hasCollided){
