@@ -168,7 +168,7 @@
                                         marker.bindPopup("<button id='learnMore' style='margin-top:10%;margin-left:20%;' class='btn btn-primary'>Learn More </button>", {closeButton: true}).openPopup();
                                     });
                                 
-                                    $('#learnMore').on("click")
+                                    $('#learnMore').on("click",function()
                                     {
                                         marker.closePopup();
                                         htmlstr='<div id="TutContainer" style="zoom:0.5;"></div>';
