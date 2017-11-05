@@ -75,28 +75,39 @@
             $(document).ready(function()
             {
                 $.get("http://ip-api.com/json", function(response) {
-                    var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
-                    initialize(response.lat,response.lon,response.country,whatToSend);
-
-                    $.get('/data',function(response)
+                   
+                    $.get('/data',function(res)
                     {
-                        console.log(response);
+                        res = JSON.parse(res);
+                     console.log(res);
+                        for(var i =0;i<res.length;i++)
+                       {
+                           console.log(res[i].country);
+                           if(res[i].country==response.country)
+                           {
+                               console.log(res[i]);
+                               var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
+                                initialize(response.lat,response.lon,response.country,whatToSend);
+
+                           }
+                       }
+                        htmlstr= '<h3> How many girls in Russia go to school? </h3>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">52%</label>\
+                            </div>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">54%</label>\
+                            </div>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">60%</label>\
+                            </div>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">70%</label>\
+                            </div>';
+                                            
                     });
-    //                 htmlstr= '<h3> How many girls in Russia go to school? </h3>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">52%</label>\
-    // </div>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">54%</label>\
-    // </div>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">60%</label>\
-    // </div>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">70%</label>\
-    // </div>';
-                    
-                    init();
+                   
+    // init();
     
                     // htmlstr='<div id="TutContainer" style="width:50% !important;"></div>';
 
