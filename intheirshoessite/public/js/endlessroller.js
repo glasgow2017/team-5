@@ -269,7 +269,7 @@ function addWorldTrees(){
 function addTree(inPath, row, isLeft){
 	var newTree;
 	if(inPath){
-		if(treesPool.length==0)return;
+		//if(treesPool.length==0)return;
 		newTree=treesPool.pop();
 		newTree.visible=true;
 		//console.log("add tree");
