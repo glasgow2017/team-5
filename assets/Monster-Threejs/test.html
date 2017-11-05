@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>This is a title</title>
+</head>
+<body>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js" integrity="sha256-9ytKBXG7+A+edjlxLzfzHGhMleDxCukt+KYzxDCZ/zI=" crossorigin="anonymous"></script> 
+
+<script>
+$(function(){
+
+
+var loader = new THREE.JSONLoader();
+
+var scene = new THREE.Scene();
+var renderer = new THREE.WebGLRenderer();
+var camera = new THREE.PerspectiveCamera(45,850/450,0.9,1000);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+// load a resource
+loader.load(
+
+	// resource URL
+	'monster.json',
+
+	// Function when resource is loaded
+	function ( geometry, materials ) {
+
+		var material = materials[ 0 ];
+		var object = new THREE.Mesh( geometry, material );
+
+		scene.add( object );
+
+	}
+);
+renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>

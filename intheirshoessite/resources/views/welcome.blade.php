@@ -171,7 +171,7 @@
                                         {
                                             console.log("learn more");
                                             marker.closePopup();
-                                            htmlstr='<div id="TutContainer" style="zoom:0.5;"></div>';
+                                            htmlstr='<div id="TutContainer" style="zoom:0.3;"></div>';
                                             marker.bindPopup(htmlstr,{closeButton:true}).openPopup();
                                             init();
                                         });
