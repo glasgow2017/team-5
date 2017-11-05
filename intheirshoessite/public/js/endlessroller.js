@@ -405,7 +405,7 @@ function update(){
 			
 			isPaused=true;
 			// inputOptions can be an object or Promise
-			if(choices == "SG.LAW.CHMR")
+			if(choice == "SG.LAW.CHMR")
 			{
 				var inputOptions = new Promise(function (resolve) {
 					setTimeout(function () {
