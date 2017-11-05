@@ -1,6 +1,6 @@
 import json
 import mysql.connector
-
+import fetch_data
 
 #List will have all the keys, the ones inside inner lists are
 #refering to the keys inside the dictionary refered to by a key.
@@ -23,17 +23,21 @@ def checking_inside_of_dict(dictionary_input, current_list):
 #MAIN
 #DDDDDDDDDDDDDDDisabled
 #filename = raw_input("Type the filename you want me to open: ")
-filename = "e.json"
-with open(filename) as f:
-    string_file  = json.loads(f.read())[1]
-    print string_file[0]
-    print string_file[1]
+#filename = "india_literacy.json"
+#with open(filename) as f:
+#    string_file  = json.loads(f.read())[1]
 
-    #Calling the function finding
-    checking_inside_of_dict(string_file[0], list_of_keys)
-    print list_of_keys
-    print string_file[0][list_of_keys[0]]
-    
-    String_for_SQL = ""
-    
+data = fetch_data.load_all_data()
 
+string_file = fetch_data.load_all_data()[1]
+print string_file[0]
+print string_file[1]
+
+#Calling the function finding
+checking_inside_of_dict(string_file[0], list_of_keys)
+print list_of_keys
+print string_file[0][list_of_keys[0]]
+    
+String_for_SQL = ""
+    
+print(len(string_file))
