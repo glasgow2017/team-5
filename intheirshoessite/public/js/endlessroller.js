@@ -604,7 +604,7 @@ function update(){
 		// }
 	}
 	
-	if(called &iter<=6)
+	if(called &iter<=20)
 	{
 		iter+=1;
 	}
