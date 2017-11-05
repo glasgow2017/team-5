@@ -172,8 +172,8 @@
                                     
                                         $('#learnMore').on("click",function()
                                         {
-                                            console.log("learn more");
                                             marker.closePopup();
+                                            console.log("learn more");
                                             htmlstr='<div id="TutContainer" style="zoom:0.3;"></div>';
                                             marker.bindPopup(htmlstr,{closeButton:true}).openPopup();
                                             init();
