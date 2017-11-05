@@ -85,7 +85,8 @@
                            console.log(res[i].country);
                            if(res[i].country==response.country)
                            {
-                               console.log(res[i]);
+                               
+                               console.log(res[i][Math.floor(Math.random() * capitols.length)]);
                                var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
                                 initialize(response.lat,response.lon,response.country,whatToSend);
 
