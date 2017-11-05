@@ -38,6 +38,7 @@ var explosionPower =1.06;
 var particles;
 var stats;
 var scoreText;
+var healthText;
 var score;
 var hasCollided;
 var isPaused=false;
@@ -116,6 +117,17 @@ function createScene(){
 	scoreText.style.top = 10 + 'px';
 	scoreText.style.left = 100 + 'px';
 	document.body.appendChild(scoreText);
+
+	healthText = document.createElement('div2');
+	healthText.style.position = 'absolute';
+	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+	healthText.style.width = 100;
+	healthText.style.height = 100;
+	//scoreText.style.backgroundColor = "blue";
+	healthText.innerHTML = "0";
+	healthText.style.top = 10 + 'px';
+	healthText.style.right = 100 + 'px';
+	document.body.appendChild(healthText);
 }
 function addExplosion(){
 	particleGeometry = new THREE.Geometry();
@@ -631,7 +643,7 @@ function healthScore()
 {
 	if(called) return;
 	health-=10;
-	console.log(health);
+	HealthText.innerHTML=health.toString();
 	called=true;
 }
 
