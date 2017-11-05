@@ -123,12 +123,12 @@ function createScene(){
 	healthText.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	healthText.style.width = 100;
 	healthText.style.height = 100;
-	healthText.style.right = 200 + 'px';
+	// healthText.style.right = 200 + 'px';
 	healthText.style.bottom = 100+"px";
 	healthText.style.textAlign = "center";
 	//scoreText.style.backgroundColor = "blue";
 	healthText.innerHTML = "0";
-	healthText.innerHTML = health.toString();
+	healthText.innerHTML = "Health : "+health.toString();
 	// healthText.style.top = 100 + 'px';
 	document.body.appendChild(healthText);
 }
@@ -646,7 +646,7 @@ function healthScore()
 {
 	if(called) return;
 	health-=10;
-	healthText.innerHTML=health.toString();
+	healthText.innerHTML="Health : "+health.toString();
 	called=true;
 }
 
