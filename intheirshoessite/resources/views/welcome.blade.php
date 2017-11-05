@@ -140,7 +140,22 @@
                                     // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
                                     initialize(response.lat,response.lon,response.country,htmlstr);
                                     $("#submit").on("click",function(){
-                                        console.log($("input[name='optradio']:checked").val());
+                                        if(Math.floor(value)==$("input[name='optradio']:checked").val())
+                                        {
+                                            swal(
+                                                'Good job!',
+                                                'You know your shit!',
+                                                'success'
+                                                )
+                                        }
+                                        else
+                                        {
+                                            swal(
+                                                'Oops...',
+                                                'You are those dumb ones!',
+                                                'error'
+                                                )
+                                        }
                                     });
                                 }
                            }
