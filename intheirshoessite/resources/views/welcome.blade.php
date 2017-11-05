@@ -82,6 +82,7 @@
                     {
                        for(var i =0;i<res.length;i++)
                        {
+                           console.log(res[i].country);
                            if(res[i].country==response.country)
                            {
                                console.log(res[i]);
