@@ -80,23 +80,23 @@
 
                     $.get('/data',function(response)
                     {
-                        console.log(response);
+                        htmlstr= '<h3> How many girls in Russia go to school? </h3>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">52%</label>\
+                            </div>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">54%</label>\
+                            </div>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">60%</label>\
+                            </div>\
+                            <div class="radio">\
+                                <label><input type="radio" name="optradio">70%</label>\
+                            </div>';
+                                            
                     });
-    //                 htmlstr= '<h3> How many girls in Russia go to school? </h3>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">52%</label>\
-    // </div>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">54%</label>\
-    // </div>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">60%</label>\
-    // </div>\
-    // <div class="radio">\
-    //     <label><input type="radio" name="optradio">70%</label>\
-    // </div>';
-                    
-                    init();
+                   
+    // init();
     
                     // htmlstr='<div id="TutContainer" style="width:50% !important;"></div>';
 
