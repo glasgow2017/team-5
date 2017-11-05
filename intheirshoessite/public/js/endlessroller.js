@@ -119,13 +119,13 @@ function createScene(){
 	document.body.appendChild(scoreText);
 
 	healthText = document.createElement('div');
-	healthText.style.position = 'absolute';
+	healthText.style.position = 'fixed';
 	healthText.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	healthText.style.width = 100;
 	healthText.style.height = 100;
 	// healthText.style.right = 200 + 'px';
 	healthText.style.left = 40+"%";
-	healthText.style.top = 50+"%";
+	healthText.style.bottom = 100+"px";
 	// healthText.style.textAlign = "center";
 	//scoreText.style.backgroundColor = "blue";
 	healthText.innerHTML = "0";
