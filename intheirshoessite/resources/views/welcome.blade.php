@@ -58,7 +58,7 @@
             
                 map = WE.map('map', {
                     center: [lat,lng],
-                    zoom: 4,
+                    zoom: 10,
                     dragging: true,
                     scrollWheelZoom: true,
                     proxyHost: 'http://srtm.webglearth.com/cgi-bin/corsproxy.fcgi?url='
