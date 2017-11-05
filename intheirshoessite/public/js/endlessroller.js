@@ -118,7 +118,7 @@ function createScene(){
 	// scoreText.style.left = 100 + 'px';
 	document.body.appendChild(scoreText);
 
-	healthText = document.createElement('div2');
+	healthText = document.createElement('div');
 	healthText.style.position = 'absolute';
 	healthText.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	healthText.style.width = 100;
