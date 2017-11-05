@@ -43,7 +43,7 @@ var hasCollided;
 var isPaused=false;
 var threeTreeTimer = 10000;
 var scoreTree;
-
+var health=100;
 
 var choice = "SG.LAW.CHMR";
 
@@ -589,7 +589,10 @@ function update(){
 			}
 		}
 
-    	// if(!hasCollided){
+    	 if(hasCollided){
+				console.log(health);
+				health-=10;
+			}
 			score+=2*treeReleaseInterval;
 			scoreText.innerHTML=score.toString();
 		// }
