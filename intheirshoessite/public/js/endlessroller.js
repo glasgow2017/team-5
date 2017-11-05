@@ -396,10 +396,7 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
-		if(score-scoreTree==7 && !(scoreTree==null))
-		{
-			
-		}
+
 		if(score-scoreTree==7 && !(scoreTree==null))
 		{
 			
@@ -433,17 +430,18 @@ function update(){
 				})
 				}
 			}).then(function (result) {
-				if(result==countryData)
+				if(result==countryData['SG.LAW.CHMR'])
 				{
-					swal(
-						'Good job!',
-						'You know it!',
-						'success'
-					  )
-					isPaused=false;
-					update();
-					upKey = {"keyCode":38};
-					handleKeyDown(upKey);
+					swal({
+						title: 'Yeah!!',
+						text: "You got it right!",
+						type: 'success',
+						}).then(function () {
+							isPaused=false;
+							update();
+							upKey = {"keyCode":38};
+							handleKeyDown(upKey);
+						})
 				}
 				else
 				{
