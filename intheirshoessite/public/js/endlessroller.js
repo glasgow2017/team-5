@@ -476,7 +476,69 @@ function update(){
 				})
 			
 			swal({
-				title: 'How many maternal deaths per 100,000 people, do you think your country has?',
+				title: 'How many maternal deaths per 100,000 birth, do you think your country has?',
+				input: 'radio',
+				inputOptions: inputOptions,
+				inputValidator: function (result) {
+				return new Promise(function (resolve, reject) {
+					if (result) {
+					resolve()
+					} else {
+					reject('You need to select something!')
+					}
+				})
+				}
+			}).then(function (result) {
+				if(result==countryData['SG.LAW.CHMR'])
+				{
+					swal({
+						title: 'Yeah!!',
+						text: "You got it right!",
+						type: 'success',
+						}).then(function () {
+							isPaused=false;
+							update();
+							upKey = {"keyCode":38};
+							handleKeyDown(upKey);
+						})
+				}
+				else
+				{
+					swal({
+						title: 'Oops...',
+						text: "Sorry you messed up!",
+						type: 'error',
+						}).then(function () {
+							isPaused=false;
+							update();
+						})
+					}
+				
+				
+				})
+				treesInPath=[];
+				treesPool=[];
+				createTreesPool();
+				scoreTree=null;
+				choice = "SL.EMP.1524.SP.FE.NE.ZS";
+			}
+			else if(choice=="SL.EMP.1524.SP.FE.NE.ZS")
+			{
+				getData = ["50","59","42","87"];
+				opt = shuffle(getData);
+				var inputOptions = new Promise(function (resolve) {
+					setTimeout(function () {
+					resolve({
+						'0': opt[0]+"%",
+						'1': opt[1]+"%",
+						'2': opt[2]+"%",
+						'3': opt[3]+"%"
+					})
+					}, 100)
+				})
+			
+			swal({
+				title: 'What percentage of women are employed from the total women population?',
 				input: 'radio',
 				inputOptions: inputOptions,
 				inputValidator: function (result) {
