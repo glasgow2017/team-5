@@ -592,13 +592,7 @@ function update(){
 			}
 			else if(choice=="SP.MTR.1519.ZS")
 			{
-				swal({
-					title: 'Thank you!!',
-					text: "It was a pleasure serving you!",
-					type: 'success',
-					}).then(function () {
-						marker.closePopup();
-					})
+				actualGameOver();
 
 			}
 		}
@@ -709,4 +703,16 @@ function onWindowResize() {
 	renderer.setSize(sceneWidth, sceneHeight);
 	camera.aspect = sceneWidth/sceneHeight;
 	camera.updateProjectionMatrix();
+}
+
+
+function actualGameOver()
+{
+	swal({
+		title: 'Thank you!!',
+		text: "It was a pleasure serving you!",
+		type: 'success',
+		}).then(function () {
+			marker.closePopup();
+		})
 }
