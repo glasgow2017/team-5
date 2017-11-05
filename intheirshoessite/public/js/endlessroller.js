@@ -764,7 +764,7 @@ function actualGameOver()
 	}
 	swal({
 		title: 'Thank you!!',
-		text: "Thank you for your participation! Your score was : "+points.toString()+" out of 3"+htmlstr,
+		html: "Thank you for your participation! Your score was : "+points.toString()+" out of 3"+htmlstr,
 		type: 'success',
 		}).then(function () {
 			marker.closePopup();
