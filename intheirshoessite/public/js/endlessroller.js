@@ -401,6 +401,8 @@ function update(){
 		{
 			isPaused=true;
 			// inputOptions can be an object or Promise
+			
+
 			var inputOptions = new Promise(function (resolve) {
 				setTimeout(function () {
 				resolve({
