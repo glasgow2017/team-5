@@ -154,7 +154,7 @@
                                                 'You know your shit!',
                                                 'success'
                                                 )
-                                                marker.bindPopup("", {closeButton: true}).closePopup();
+                                                marker.closePopup();
                                         }
                                         else
                                         {
@@ -164,6 +164,7 @@
                                                 'error'
                                                 )
                                         }
+                                        marker.bindPopup("<button id='learnMore' style='margin-top:10%;text-align:center;' class='btn btn-primary'>Learn More </button>", {closeButton: true});
                                     });
                                 }
                            }
