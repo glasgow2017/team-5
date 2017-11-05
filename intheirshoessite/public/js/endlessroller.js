@@ -45,7 +45,8 @@ var isPaused=false;
 var threeTreeTimer = 10000;
 var scoreTree;
 var health=100;
-
+var points;
+var pointsText;
 
 
 var called=false;
