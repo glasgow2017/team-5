@@ -48,8 +48,8 @@
         <h1 style="font-size:3.5em;margin-top:10%;">
             In their shoes
         </h1>
-        <img src="{{ asset('img/front-page-girl.png') }}" class="img-fluid rounded mx-auto d-block"/>
-
+        <img src="{{ asset('img/front-page-girl.png') }}" class="img-fluid rounded mx-auto d-block" style="margin-bottom: 15px;z-index: -9999;"/>
+	
         <script>
         var map;
         var marker;
@@ -157,7 +157,7 @@
                                         {
                                             swal(
                                                 'Good job!',
-                                                'You know your shit!',
+                                                'You know your facts!',
                                                 'success'
                                                 )
                                                 marker.closePopup();
@@ -166,7 +166,7 @@
                                         {
                                             swal(
                                                 'Oops...',
-                                                'You are those dumb ones!',
+                                                'Oh no sorry you got that wrong!',
                                                 'error'
                                                 )
                                                 marker.closePopup();
