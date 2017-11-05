@@ -22,6 +22,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.min.js" integrity="sha256-atgxWORFPH5jcOKVvZzWhe90dUmt2G7TEpl8v9Nf/ec=" crossorigin="anonymous"></script>
 
 
+              
+    <script type="text/javascript" src="{{ asset('js/three.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/stats.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/OrbitControls.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/endlessroller.js') }}"></script>
+    
+
     
         
         
@@ -156,6 +163,7 @@
                                                 'success'
                                                 )
                                                 marker.closePopup();
+
                                         }
                                         else
                                         {
@@ -209,12 +217,7 @@
     
     <!-- <div style="zoom:0.5;" id="TutContainer" ></div> -->
 
-            
-    <script type="text/javascript" src="{{ asset('js/three.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/stats.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/OrbitControls.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/endlessroller.js') }}"></script>
-
+  
     <h3 style="margin-top:5%;text-align:center;"> Thank you for being part of this demonstration and raising awareness together.</h3>
 
 </body>
