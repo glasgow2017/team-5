@@ -1,6 +1,6 @@
 /*global THREE*/
 /*global Stats*/
-window.addEventListener('load', init, false);
+// window.addEventListener('load', init, false);
 
 var sceneWidth;
 var sceneHeight;
