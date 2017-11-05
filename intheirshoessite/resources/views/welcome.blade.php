@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
@@ -18,6 +22,8 @@
     <script type="text/javascript" src="{{ asset('js/stats.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/OrbitControls.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/endlessroller.js') }}"></script>
+
+    
         
         
     
