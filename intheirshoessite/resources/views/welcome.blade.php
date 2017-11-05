@@ -112,6 +112,10 @@
                                     {
                                         options.push(100);
                                     }
+                                    else
+                                    {
+                                        options.push(95);
+                                    }
                                     for(var j=15;j<=30;j+=15)
                                     {
                                         options.push(options.push(value-j));
@@ -120,16 +124,16 @@
                                     options = shuffle(options);
                                     htmlstr= '<h3> How many females get employed in your country? Any ideas? </h3>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[0]+'</label>\
+                                                    <label><input type="radio" name="optradio">'+options[0]+'%</label>\
                                                 </div>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[1]+'</label>\
+                                                    <label><input type="radio" name="optradio">'+options[1]+'%</label>\
                                                 </div>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[2]+'/label>\
+                                                    <label><input type="radio" name="optradio">'+options[2]+'%</label>\
                                                 </div>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[3]+'</label>\
+                                                    <label><input type="radio" name="optradio">'+options[3]+'%</label>\
                                                 </div>';
                                       
                                     // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
