@@ -759,7 +759,7 @@ function actualGameOver()
 	isPaused=true;
 	swal({
 		title: 'Thank you!!',
-		text: "Thank you for your participation!",
+		text: "Thank you for your participation! Your score was : "+points+" out of 4",
 		type: 'success',
 		}).then(function () {
 			marker.closePopup();
