@@ -526,6 +526,7 @@ function update(){
 			{
 				getData = ["50","59","42","87"];
 				opt = shuffle(getData);
+				correct = opt.indexOf(Math.floor(parseInt(countryData["SL.EMP.1524.SP.FE.NE.ZS"]).toString()));
 				var inputOptions = new Promise(function (resolve) {
 					setTimeout(function () {
 					resolve({
@@ -551,7 +552,7 @@ function update(){
 				})
 				}
 			}).then(function (result) {
-				if(result==countryData['SG.LAW.CHMR'])
+				if(result==correct)
 				{
 					swal({
 						title: 'Yeah!!',
