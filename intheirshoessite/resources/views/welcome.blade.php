@@ -50,8 +50,8 @@
         </h1>
         <img src="{{ asset('img/front-page-girl.png') }}" class="img-fluid rounded mx-auto d-block" style="margin-bottom: 15px;z-index: -9999;"/>
 	
-        Health : <div class="#health"></div><br>
-        Score : <div class="#score"></div>
+        Health : <div id="health"></div><br>
+        Score : <div id="score"></div>
 
         <script>
         var map;
