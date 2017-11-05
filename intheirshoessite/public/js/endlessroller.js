@@ -46,6 +46,8 @@ var threeTreeTimer = 10000;
 var scoreTree;
 var health=100;
 
+
+
 var called=false;
 var iter = 0;
 
@@ -107,6 +109,18 @@ function createScene(){
 
 	document.onkeydown = handleKeyDown;
 	
+	pointsText = document.createElement('div');
+	pointsText.style.position = "fixed";
+	pointsText.style.left = 40+"%";
+	pointsText.style.top = 80+"px";
+	pointsText.innerHTML = "0";
+	pointsText.innerHTML = "Health : "+health.toString();
+	pointsText.style.zIndex = 999;
+	pointsText.style.width = 100;
+	pointsText.style.height = 100;
+
+
+
 	scoreText = document.createElement('div');
 	scoreText.style.position = 'absolute';
 	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
@@ -457,6 +471,8 @@ function update(){
 						type: 'success',
 						}).then(function () {
 							isPaused=false;
+							points+=1;
+							pointsText.innerHTML="Score : "+points.toString();
 							update();
 							upKey = {"keyCode":38};
 							handleKeyDown(upKey);
@@ -522,6 +538,8 @@ function update(){
 						type: 'success',
 						}).then(function () {
 							isPaused=false;
+							points+=1;
+							pointsText.innerHTML="Score : "+points.toString();
 							update();
 							upKey = {"keyCode":38};
 							handleKeyDown(upKey);
@@ -588,6 +606,8 @@ function update(){
 						type: 'success',
 						}).then(function () {
 							isPaused=false;
+							points+=1;
+							pointsText.innerHTML="Score : "+points.toString();
 							update();
 							upKey = {"keyCode":38};
 							handleKeyDown(upKey);
@@ -744,4 +764,5 @@ function actualGameOver()
 			marker.closePopup();
 		})
 	healthText.remove();
+	pointsText.remove();
 }
