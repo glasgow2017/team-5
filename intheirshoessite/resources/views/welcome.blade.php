@@ -11,6 +11,9 @@
     <meta name="author" content="AM" />
     <meta name="description" content="Endless Roller" />
 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.min.js" integrity="sha256-atgxWORFPH5jcOKVvZzWhe90dUmt2G7TEpl8v9Nf/ec=" crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="{{ asset('js/three.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/stats.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/OrbitControls.js') }}"></script>
@@ -72,7 +75,7 @@
             $(document).ready(function()
             {
                 $.get("http://ip-api.com/json", function(response) {
-                    var whatToSend = "<h3> Your Country is Good, but do you know this one?";
+                    var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
                     initialize(response.lat,response.lon,response.country,whatToSend);
     //                 htmlstr= '<h3> How many girls in Russia go to school? </h3>\
     // <div class="radio">\
@@ -87,8 +90,12 @@
     // <div class="radio">\
     //     <label><input type="radio" name="optradio">70%</label>\
     // </div>';
-                    htmlstr='<div id="TutContainer" style="width:50% !important;"></div>';
-                    setTimeout(function(){changeViewAndAddMarkers(22,77,"India",htmlstr)},3000);
+                    
+                    init();
+    
+                    // htmlstr='<div id="TutContainer" style="width:50% !important;"></div>';
+
+                    // setTimeout(function(){changeViewAndAddMarkers(22,77,"India",htmlstr)},3000);
                 });
                 
             });
