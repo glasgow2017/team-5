@@ -395,13 +395,9 @@ function update(){
 		}
 		if(score-scoreTree==7 && !(scoreTree==null))
 		{
-			treesInPath=[];
-			treesPool=[];
-			createTreesPool();
-			console.log("Create Again");
-			scoreTree=null;
+			
 		}
-		if(score-scoreTree==7 && !(scoreTree==null) && false)
+		if(score-scoreTree==7 && !(scoreTree==null))
 		{
 			isPaused=true;
 			// inputOptions can be an object or Promise
@@ -434,6 +430,9 @@ function update(){
 				upKey = {"keyCode":38};
 				handleKeyDown(upKey);
 			})
+			treesInPath=[];
+			treesPool=[];
+			createTreesPool();
 			scoreTree=null;
 		}
 
