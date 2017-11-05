@@ -464,7 +464,7 @@ function update(){
 			{
 				getData = ["31","225","410","10"];
 				opt = shuffle(getData);
-				correct = opt.indexof("10");
+				correct = opt.indexOf("10");
 				var inputOptions = new Promise(function (resolve) {
 					setTimeout(function () {
 					resolve({
