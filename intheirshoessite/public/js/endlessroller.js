@@ -394,7 +394,7 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
-		if(score-scoreTree==7 && !(scoreTree==null) && false)
+		if(score-scoreTree==7 && !(scoreTree==null))
 		{
 			isPaused=true;
 			// inputOptions can be an object or Promise
