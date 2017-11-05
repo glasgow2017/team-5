@@ -80,7 +80,8 @@
 
                     $.get('/data',function(res)
                     {
-                       for(var i =0;i<res.length;i++)
+                     console.log(res);
+                        for(var i =0;i<res.length;i++)
                        {
                            console.log(res[i].country);
                            if(res[i].country==response.country)
