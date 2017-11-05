@@ -75,9 +75,7 @@
             $(document).ready(function()
             {
                 $.get("http://ip-api.com/json", function(response) {
-                    var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
-                    initialize(response.lat,response.lon,response.country,whatToSend);
-
+                   
                     $.get('/data',function(res)
                     {
                         res = JSON.parse(res);
@@ -88,6 +86,9 @@
                            if(res[i].country==response.country)
                            {
                                console.log(res[i]);
+                               var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
+                                initialize(response.lat,response.lon,response.country,whatToSend);
+
                            }
                        }
                         htmlstr= '<h3> How many girls in Russia go to school? </h3>\
