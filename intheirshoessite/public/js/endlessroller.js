@@ -120,7 +120,7 @@ function createScene(){
 
 	healthText = document.createElement('div2');
 	healthText.style.position = 'absolute';
-	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+	text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	healthText.style.width = 100;
 	healthText.style.height = 100;
 	healthText.style.bottom = 100+"px";
