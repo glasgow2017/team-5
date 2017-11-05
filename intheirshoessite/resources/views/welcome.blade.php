@@ -72,6 +72,25 @@
                     startGame();
                 }
             
+                function shuffle(array) {
+                    var currentIndex = array.length, temporaryValue, randomIndex;
+
+                    // While there remain elements to shuffle...
+                    while (0 !== currentIndex) {
+
+                        // Pick a remaining element...
+                        randomIndex = Math.floor(Math.random() * currentIndex);
+                        currentIndex -= 1;
+
+                        // And swap it with the current element.
+                        temporaryValue = array[currentIndex];
+                        array[currentIndex] = array[randomIndex];
+                        array[randomIndex] = temporaryValue;
+                    }
+
+                    return array;
+                    }
+
             $(document).ready(function()
             {
                 $.get("http://ip-api.com/json", function(response) {
@@ -85,27 +104,40 @@
                            console.log(res[i].country);
                            if(res[i].country==response.country)
                            {
-                               
-                               console.log(res[i][Math.floor(Math.random() * res[i].length)]);
-                               var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
-                                initialize(response.lat,response.lon,response.country,whatToSend);
-
+                               if(res[i]["SE.ADT.LITR.FE.ZS"]!=0)
+                                {
+                                    value = parseInt(res[i]["SE.ADT.LITR.FE.ZS"]);
+                                    options=[]
+                                    if(value+10>100)
+                                    {
+                                        options.push(100);
+                                    }
+                                    for(var j=15;j<=30;j+=15)
+                                    {
+                                        options.push(options.push(value-j));
+                                    }
+                                    options.push(Math.floor(value));
+                                    options = shuffle(options);
+                                    htmlstr= '<h3> How many females get employed in your country? Any ideas? </h3>\
+                                                <div class="radio">\
+                                                    <label><input type="radio" name="optradio">'+options[0]+'</label>\
+                                                </div>\
+                                                <div class="radio">\
+                                                    <label><input type="radio" name="optradio">'+options[1]+'</label>\
+                                                </div>\
+                                                <div class="radio">\
+                                                    <label><input type="radio" name="optradio">'+options[2]+'/label>\
+                                                </div>\
+                                                <div class="radio">\
+                                                    <label><input type="radio" name="optradio">'+options[3]+'</label>\
+                                                </div>';
+                                      
+                                    // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
+                                    initialize(response.lat,response.lon,response.country,htmlstr);
+                                }
                            }
                        }
-                        htmlstr= '<h3> How many girls in Russia go to school? </h3>\
-                            <div class="radio">\
-                                <label><input type="radio" name="optradio">52%</label>\
-                            </div>\
-                            <div class="radio">\
-                                <label><input type="radio" name="optradio">54%</label>\
-                            </div>\
-                            <div class="radio">\
-                                <label><input type="radio" name="optradio">60%</label>\
-                            </div>\
-                            <div class="radio">\
-                                <label><input type="radio" name="optradio">70%</label>\
-                            </div>';
-                                            
+                             
                     });
                    
     // init();
@@ -126,6 +158,8 @@
 
     <div id="map"></div>
     
+    <!-- <div style="zoom:0.5;" id="TutContainer" ></div> -->
+
 </body>
      
 </html>
