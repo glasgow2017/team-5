@@ -1,5 +1,5 @@
 import urllib, json
-
+import pprint
 
 def fetch_data(indicator, country):
 	url = "http://api.worldbank.org/countries/" + country
@@ -11,10 +11,16 @@ def fetch_data(indicator, country):
 countries = ["ID", "IN", "RW", "GB"]
 indicators = ["SE.ADT.LITR.ZS", "SG.LAW.CHMR", "SH.STA.MMRT", "SL.EMP.1524.SP.FE.NE.ZS", "SP.MTR.1519.ZS"]
 
-datas = []
 
-for c in countries:
-	for i in indicators:
-		datas.append(fetch_data(i, c))
+def load_all_data():
+	datas = []
 
-print(len(datas))
+	for c in countries:
+		for i in indicators:
+			datas.append(fetch_data(i, c))
+
+	return datas
+
+pp = pprint.PrettyPrinter(depth=6)
+pp.pprint(load_all_data())
+

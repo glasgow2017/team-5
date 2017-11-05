@@ -1,6 +1,6 @@
 /*global THREE*/
 /*global Stats*/
-window.addEventListener('load', startGame, false);
+window.addEventListener('load', init, false);
 
 var sceneWidth;
 var sceneHeight;
@@ -40,11 +40,14 @@ var stats;
 var scoreText;
 var score;
 var hasCollided;
-var r = true;
+var isPaused=false;
+var threeTreeTimer = 10000;
+var scoreTree;
 
-function startGame() {
+function init() {
 	// set up the scene
 	createScene();
+
 	//call game loop
 	update();
 }
@@ -96,7 +99,6 @@ function createScene(){
 	window.addEventListener('resize', onWindowResize, false);//resize callback
 
 	document.onkeydown = handleKeyDown;
-	document.addEventListener('touchstart', onDamnTouch, false);
 	
 	scoreText = document.createElement('div');
 	scoreText.style.position = 'absolute';
@@ -130,9 +132,6 @@ function createTreesPool(){
 		newTree=createTree();
 		treesPool.push(newTree);
 	}
-}
-function onDamnTouch(){
-	
 }
 function handleKeyDown(keyEvent){
 	if(jumping)return;
@@ -240,12 +239,24 @@ function addLight(){
 function addPathTree(){
 	var options=[0,1,2];
 	var lane= Math.floor(Math.random()*3);
-	addTree(true,lane);
+  	var randTime = Math.floor(Math.random()*1000);
+	//addTree(true,lane);
+  	addTree(true,lane);
 	options.splice(lane,1);
-	if(Math.random()>0.5){
-		lane= Math.floor(Math.random()*2);
-		addTree(true,options[lane]);
-	}
+  
+  	
+	//if(Math.random()>0.5)
+		//lane= Math.floor(Math.random()*2);
+    	//addTree(true, lane);
+    	//obstacle = true;
+  	//
+}
+function addThreeTrees(){
+	var options = [0,1,2];
+	addTree(true,options[0]);
+  	addTree(true,options[1]);
+	addTree(true,options[2]);
+	console.log("t3");
 }
 function addWorldTrees(){
 	var numTrees=36;
@@ -262,6 +273,7 @@ function addTree(inPath, row, isLeft){
 		newTree=treesPool.pop();
 		newTree.visible=true;
 		//console.log("add tree");
+		
 		treesInPath.push(newTree);
 		sphericalHelper.set( worldRadius-0.3, pathAngleValues[row], -rollingGroundSphere.rotation.x+4 );
 	}else{
@@ -361,6 +373,7 @@ function tightenTree(vertices,sides,currentTier){
 }
 
 function update(){
+	if(isPaused) return;
 	stats.update();
     //animate
     rollingGroundSphere.rotation.x += rollingSpeed;
@@ -374,19 +387,66 @@ function update(){
     bounceValue-=gravity;
     if(clock.getElapsedTime()>treeReleaseInterval){
     	clock.start();
-    	addPathTree();
-    	if(!hasCollided){
+		addPathTree();
+		if((score+1)%15==0)
+		{
+			addThreeTrees();
+			scoreTree=score+1;
+		}
+		if(score-scoreTree==7 && !(scoreTree==null))
+		{
+			
+		}
+		if(score-scoreTree==7 && !(scoreTree==null))
+		{
+			isPaused=true;
+			// inputOptions can be an object or Promise
+			var inputOptions = new Promise(function (resolve) {
+				setTimeout(function () {
+				resolve({
+					'#ff0000': 'Red',
+					'#00ff00': 'Green',
+					'#0000ff': 'Blue'
+				})
+				}, 100)
+			})
+			
+			swal({
+				title: 'Select color',
+				input: 'radio',
+				inputOptions: inputOptions,
+				inputValidator: function (result) {
+				return new Promise(function (resolve, reject) {
+					if (result) {
+					resolve()
+					} else {
+					reject('You need to select something!')
+					}
+				})
+				}
+			}).then(function (result) {
+				isPaused=false;
+				update();
+				upKey = {"keyCode":38};
+				handleKeyDown(upKey);
+			})
+			treesInPath=[];
+			treesPool=[];
+			createTreesPool();
+			scoreTree=null;
+		}
+
+    	// if(!hasCollided){
 			score+=2*treeReleaseInterval;
 			scoreText.innerHTML=score.toString();
-		}
+		// }
     }
     doTreeLogic();
 	doExplosionLogic();
-	if (r){
-		render();
-	}
-	r = false;	
+	render();
 	requestAnimationFrame(update);//request next update
+	
+	
 }
 function doTreeLogic(){
 	var oneTree;
