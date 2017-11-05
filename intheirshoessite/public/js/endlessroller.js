@@ -757,9 +757,14 @@ function onWindowResize() {
 function actualGameOver()
 {
 	isPaused=true;
+	var htmlstr="";
+	if(score==0)
+	{
+		htmlstr+=" <br> Please look at links below to understand more<br><a href='http://www.unwomen.org/en/what-we-do/ending-violence-against-women/increasing-knowledge-and-awareness'>Link1</a>";
+	}
 	swal({
 		title: 'Thank you!!',
-		text: "Thank you for your participation! Your score was : "+points.toString()+" out of 3",
+		text: "Thank you for your participation! Your score was : "+points.toString()+" out of 3"+htmlstr,
 		type: 'success',
 		}).then(function () {
 			marker.closePopup();
