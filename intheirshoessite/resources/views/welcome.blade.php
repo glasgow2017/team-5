@@ -78,7 +78,7 @@
                     var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> <div style="zoom:0.5;" id="TutContainer" ></div>';
                     initialize(response.lat,response.lon,response.country,whatToSend);
 
-                    $.get('/data',function(response)
+                    $.get('/data',function(res)
                     {
                         console.log(res);
                         $.each( res, function( key, value ) {
