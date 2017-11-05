@@ -124,23 +124,23 @@
                                     options = shuffle(options);
                                     htmlstr= '<h3> How many females get employed in your country? Any ideas? </h3>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[0]+'%</label>\
+                                                    <label><input type="radio" name="optradio" value="'+options[0]+'">'+options[0]+'%</label>\
                                                 </div>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[1]+'%</label>\
+                                                    <label><input type="radio" name="optradio" value="'+options[1]+'">'+options[1]+'%</label>\
                                                 </div>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[2]+'%</label>\
+                                                    <label><input type="radio" name="optradio" value="'+options[2]+'">'+options[2]+'%</label>\
                                                 </div>\
                                                 <div class="radio">\
-                                                    <label><input type="radio" name="optradio">'+options[3]+'%</label>\
+                                                    <label><input type="radio" name="optradio" value="'+options[3]+'">'+options[3]+'%</label>\
                                                 </div><br><br>\
                                                 <button id="submit" style="margin-left:25%;">I am sure!</button>';
                                       
                                     // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
                                     initialize(response.lat,response.lon,response.country,htmlstr);
                                     $("#submit").on("click",function(){
-                                        console.log($("input[name='optradio']:checked").innerHTML);
+                                        console.log($("input[name='optradio']:checked").val());
                                     });
                                 }
                            }
