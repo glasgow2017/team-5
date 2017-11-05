@@ -758,11 +758,15 @@ function actualGameOver()
 	isPaused=true;
 	swal({
 		title: 'Thank you!!',
-		text: "It was a pleasure serving you!",
+		text: "Thank you for your participation!",
 		type: 'success',
 		}).then(function () {
 			marker.closePopup();
 		})
 	healthText.remove();
+<<<<<<< HEAD
 	pointsText.remove();
 }
+=======
+}
+>>>>>>> 43109418562aa3eeeb15502726df1323c774e369
