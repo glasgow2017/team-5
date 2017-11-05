@@ -118,7 +118,7 @@
                                     }
                                     for(var j=15;j<=30;j+=15)
                                     {
-                                        options.push(options.push(value-j));
+                                        options.push(value-j);
                                     }
                                     options.push(Math.floor(value));
                                     options = shuffle(options);
