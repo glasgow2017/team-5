@@ -590,6 +590,17 @@ function update(){
 				scoreTree=null;
 				choice = "SP.MTR.1519.ZS";
 			}
+			else if(choice=="SP.MTR.1519.ZS")
+			{
+				swal({
+					title: 'Thank you!!',
+					text: "It was a pleasure serving you!",
+					type: 'success',
+					}).then(function () {
+						marker.closePopup();
+					})
+
+			}
 		}
 
     	//  if(hasCollided){
