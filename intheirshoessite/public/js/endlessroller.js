@@ -273,6 +273,7 @@ function addTree(inPath, row, isLeft){
 		newTree=treesPool.pop();
 		newTree.visible=true;
 		//console.log("add tree");
+		
 		treesInPath.push(newTree);
 		sphericalHelper.set( worldRadius-0.3, pathAngleValues[row], -rollingGroundSphere.rotation.x+4 );
 	}else{
@@ -391,6 +392,14 @@ function update(){
 		{
 			addThreeTrees();
 			scoreTree=score+1;
+		}
+		if(score-scoreTree==7 && !(scoreTree==null))
+		{
+			treesInPath=[];
+			treesPool=[];
+			createTreesPool();
+			console.log("Create Again");
+			scoreTree=null;
 		}
 		if(score-scoreTree==7 && !(scoreTree==null) && false)
 		{
