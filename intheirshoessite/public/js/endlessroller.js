@@ -124,8 +124,9 @@ function createScene(){
 	healthText.style.width = 100;
 	healthText.style.height = 100;
 	// healthText.style.right = 200 + 'px';
-	healthText.style.bottom = 100+"px";
-	healthText.style.textAlign = "center";
+	healthText.style.left = 40+"%";
+	healthText.style.top = 50+"%";
+	// healthText.style.textAlign = "center";
 	//scoreText.style.backgroundColor = "blue";
 	healthText.innerHTML = "0";
 	healthText.innerHTML = "Health : "+health.toString();
