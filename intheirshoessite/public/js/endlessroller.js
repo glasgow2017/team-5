@@ -757,12 +757,10 @@ function onWindowResize() {
 function actualGameOver()
 {
 	isPaused=true;
-	var htmlstr="";
-	if(points==0)
-	{
-		htmlstr+=" <br> Please look at links below to increase your awareness<br><a href='http://www.unwomen.org/en/what-we-do/ending-violence-against-women/increasing-knowledge-and-awareness'>UN Women</a>\
+	
+	var htmlstr=" <br> Please look at links below to increase your awareness<br><a href='http://www.unwomen.org/en/what-we-do/ending-violence-against-women/increasing-knowledge-and-awareness'>UN Women</a>\
 		<br><a href='https://www.summer.harvard.edu/inside-summer/gender-inequality-women-workplace'>Harvard Research</a>";
-	}
+	
 	swal({
 		title: 'Thank you!!',
 		html: "Thank you for your participation! Your score was : "+points.toString()+" out of 3"+htmlstr,
