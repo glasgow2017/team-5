@@ -134,7 +134,7 @@
                                                 </div>\
                                                 <div class="radio">\
                                                     <label><input type="radio" name="optradio">'+options[3]+'%</label>\
-                                                </div>\
+                                                </div><br><br>\
                                                 <button id="submit" style="margin-left:25%;">I am sure!</button>';
                                       
                                     // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
