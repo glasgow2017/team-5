@@ -643,7 +643,7 @@ function healthScore()
 {
 	if(called) return;
 	health-=10;
-	HealthText.innerHTML=health.toString();
+	healthText.innerHTML=health.toString();
 	called=true;
 }
 
