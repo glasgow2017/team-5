@@ -3,7 +3,7 @@
     <head>
     
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://www.webglearth.com/v2/api.js"></script>
@@ -49,7 +49,8 @@
 
         <script>
         var map;
-            
+        var marker;
+
         function initialize(lat,lng,country,whatToSend) {
             
                 map = WE.map('map', {
@@ -64,16 +65,16 @@
                 attribution: '© OpenStreetMap contributors'
                 }).addTo(map);
 
-                var marker = WE.marker([lat,lng]).addTo(map);
-                marker.bindPopup(country+"<br>"+whatToSend, {maxWidth: 150, closeButton: true}).openPopup();
+                marker = WE.marker([lat,lng]).addTo(map);
+                marker.bindPopup(country+"<br>"+whatToSend, {closeButton: true}).openPopup();
 
                 map.setView([lat, lng], 3);
                 }
             
                 function changeViewAndAddMarkers(lat,lng,country,whatToSend)
                 {
-                    var marker = WE.marker([lat, lng]).addTo(map);
-                    marker.bindPopup(country+"<br>"+whatToSend, {maxWidth: 150, closeButton: true}).openPopup();
+                    var marker1 = WE.marker([lat, lng]).addTo(map);
+                    marker1.bindPopup(country+"<br>"+whatToSend, {closeButton: true}).openPopup();
                     map.panTo([lat,lng]);
                     startGame();
                 }
@@ -141,7 +142,7 @@
                                                 <div class="radio">\
                                                     <label><input type="radio" name="optradio" value="'+options[3]+'">'+options[3]+'%</label>\
                                                 </div><br><br>\
-                                                <button id="submit" style="margin-left:25%;" class="btn btn-primary">I am sure!</button>';
+                                                <button id="submit" style="margin-left:20%;" class="btn btn-primary">I am sure!</button>';
                                       
                                     // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
                                     initialize(response.lat,response.lon,response.country,htmlstr);
@@ -153,6 +154,7 @@
                                                 'You know your shit!',
                                                 'success'
                                                 )
+                                                marker.bindPopup("", {closeButton: true}).closePopup();
                                         }
                                         else
                                         {
