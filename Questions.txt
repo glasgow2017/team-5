@@ -1,26 +1,52 @@
 Literacy: “What percentage of adult women in (the) %country has the ability to read and write?”
-A: 
+A: %answer type: percentage
 B: 
 C: 
+
+
+“Which country out of the following has the highest literacy rate?"
+A: %answer type: Country name
+B:
+C:
+
+
 
 Law: “Does the law in %country prohibits or invalidates child or early marriage?”
 A: “Yes, it does!”
 B: “No, it doesn’t!”
 
+
+
+
 Maternal mortality: “What is the number of maternal deaths per 100,000 live birth?”
-A: 
+A: %answer type: number
 B: 
 C: 
 
-Employment: “What is the average employment rate of women aged 15-24 in %country?“
-A: 
+
+"Which country has the maternal mortality of %number?"
+A: %answer type: Country name
 B: 
 C: 
+
+
+
+
+Employment: “What is the average employment rate of women aged 15-24 in %country?“
+A: %answer type: percentage?
+B: 
+C: 
+
+
 
 
 Underage: “What percentage of teenage women are currently pregnant or have had children in %country?”
-A: 
+A: %answer type: percentage
 B: 
 C: 
 
-Underage: “Do you think, that every women 
+
+"Which country struggles the most with teenage women being pregnant of having had children?"
+A: %answer type: Country name
+B:
+C:
