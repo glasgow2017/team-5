@@ -125,8 +125,8 @@ function createScene(){
 	healthText.style.height = 100;
 	//scoreText.style.backgroundColor = "blue";
 	healthText.innerHTML = "0";
-	healthText.style.top = 10 + 'px';
-	healthText.style.right = 100 + 'px';
+	healthText.style.top = 100 + 'px';
+	healthText.style.right = 300 + 'px';
 	document.body.appendChild(healthText);
 }
 function addExplosion(){
