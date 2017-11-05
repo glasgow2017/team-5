@@ -174,7 +174,7 @@
                                         htmlstr='<div id="TutContainer" style="zoom:0.5;"></div>';
                                         marker.bindPopup(htmlstr,{closeButton:true}).openPopup();
                                         init();
-                                    }
+                                    });
                                 }
                            }
                        }
