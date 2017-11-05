@@ -256,9 +256,7 @@ function addThreeTrees(){
 	addTree(true,options[0]);
   	addTree(true,options[1]);
 	addTree(true,options[2]);
-	console.log("t3")
-	// setTimeout(function(){},10000);
-	// isPaused = true;
+	console.log("t3");
 }
 function addWorldTrees(){
 	var numTrees=36;
@@ -394,7 +392,7 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
-		if(score-scoreTree==7 && !(scoreTree==null))
+		if(score-scoreTree==7 && !(scoreTree==null) && false)
 		{
 			isPaused=true;
 			// inputOptions can be an object or Promise
@@ -424,7 +422,10 @@ function update(){
 			}).then(function (result) {
 				isPaused=false;
 				update();
+				upKey = {"keyCode":38};
+				handleKeyDown(upKey);
 			})
+			scoreTree=null;
 		}
 
     	// if(!hasCollided){
