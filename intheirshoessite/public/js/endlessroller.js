@@ -526,7 +526,8 @@ function update(){
 			{
 				getData = ["50","59","42","87"];
 				opt = shuffle(getData);
-				correct = opt.indexOf(Math.floor(parseInt(countryData["SL.EMP.1524.SP.FE.NE.ZS"]).toString()));
+				correct = opt.indexOf("87");
+				// correct = opt.indexOf(Math.floor(parseInt(countryData["SL.EMP.1524.SP.FE.NE.ZS"]).toString()));
 				var inputOptions = new Promise(function (resolve) {
 					setTimeout(function () {
 					resolve({
