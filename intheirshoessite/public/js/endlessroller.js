@@ -45,6 +45,9 @@ var threeTreeTimer = 10000;
 var scoreTree;
 var health=100;
 
+
+var iter = 0;
+
 var choice = "SG.LAW.CHMR";
 
 function init() {
@@ -589,14 +592,28 @@ function update(){
 			}
 		}
 
-    	 if(hasCollided){
-				console.log(health);
-				health-=10;
-			}
+    	//  if(hasCollided){
+		// 		console.log(health);
+		// 		health-=10;
+		// 	}
+
+
+
 			score+=2*treeReleaseInterval;
 			scoreText.innerHTML=score.toString();
 		// }
-    }
+	}
+	
+	if(called &iter<=6)
+	{
+		iter+=1;
+	}
+	else
+	{
+		iter=0;
+		called=false;
+	}
+
     doTreeLogic();
 	doExplosionLogic();
 	render();
@@ -604,6 +621,15 @@ function update(){
 	
 	
 }
+
+function healthScore()
+{
+	if(called) return;
+	health-=10;
+	console.log(health);
+	called=true;
+}
+
 function doTreeLogic(){
 	var oneTree;
 	var treePos = new THREE.Vector3();
@@ -617,6 +643,7 @@ function doTreeLogic(){
 			if(treePos.distanceTo(heroSphere.position)<=0.6){
 				console.log("hit");
 				hasCollided=true;
+				healthScore();
 				explode();
 			}
 		}
