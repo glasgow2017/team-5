@@ -108,25 +108,25 @@ function createScene(){
 	document.onkeydown = handleKeyDown;
 	
 	scoreText = document.createElement('div');
-	scoreText.style.position = 'relative';
+	// scoreText.style.position = 'absolute';
 	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	scoreText.style.width = 100;
 	scoreText.style.height = 100;
 	//scoreText.style.backgroundColor = "blue";
 	scoreText.innerHTML = "0";
-	scoreText.style.top = 10 + 'px';
-	scoreText.style.left = 100 + 'px';
+	// scoreText.style.top = 10 + 'px';
+	// scoreText.style.left = 100 + 'px';
 	document.body.appendChild(scoreText);
 
 	healthText = document.createElement('div2');
-	healthText.style.position = 'relative';
+	// healthText.style.position = 'absolute';
 	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	healthText.style.width = 100;
 	healthText.style.height = 100;
 	//scoreText.style.backgroundColor = "blue";
 	healthText.innerHTML = "0";
-	healthText.style.top = 100 + 'px';
-	healthText.style.right = 200 + 'px';
+	// healthText.style.top = 100 + 'px';
+	// healthText.style.right = 200 + 'px';
 	document.body.appendChild(healthText);
 }
 function addExplosion(){
