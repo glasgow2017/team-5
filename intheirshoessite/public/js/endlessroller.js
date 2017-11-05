@@ -464,6 +464,7 @@ function update(){
 			{
 				getData = ["31","225","410","10"];
 				opt = shuffle(getData);
+				correct = opt.indexof("10");
 				var inputOptions = new Promise(function (resolve) {
 					setTimeout(function () {
 					resolve({
@@ -489,7 +490,7 @@ function update(){
 				})
 				}
 			}).then(function (result) {
-				if(result==countryData['SG.LAW.CHMR'])
+				if(result==correct)
 				{
 					swal({
 						title: 'Yeah!!',
