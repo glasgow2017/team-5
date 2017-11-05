@@ -1,3 +1,16 @@
+Intro quesitons:
+
+
+"What is your gender?"
+A: "Male"
+B: "Female"
+C: "Other"
+D: "I prefer not to reveal"
+
+"What is you age?"
+#either age categories, or just input
+
+
 Literacy: “What percentage of adult women in (the) %country has the ability to read and write?”
 A: %answer type: percentage
 B: 
