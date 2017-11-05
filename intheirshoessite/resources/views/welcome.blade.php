@@ -80,6 +80,7 @@
 
                     $.get('/data',function(res)
                     {
+                        res = JSON.parse(res);
                      console.log(res);
                         for(var i =0;i<res.length;i++)
                        {
