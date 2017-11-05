@@ -168,7 +168,7 @@
                                                 )
                                                 marker.closePopup();
                                         }
-                                        marker.bindPopup("<button id='learnMore' style='margin-top:10%;margin-left:20%;' class='btn btn-primary'>Learn More </button>", {closeButton: true}).openPopup();
+                                        marker.bindPopup("<p>Every year, hundreds of young women suffer from gender inequality poverty. Let's get together and ? inequality.</p><button id='learnMore' style='margin-top:10%;margin-left:20%;' class='btn btn-primary'>Now step into Our shoes </button>", {closeButton: true}).openPopup();
                                     
                                         $('#learnMore').on("click",function()
                                         {
