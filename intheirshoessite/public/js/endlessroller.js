@@ -155,6 +155,9 @@ function createTreesPool(){
 		treesPool.push(newTree);
 	}
 }
+window.addEventListener("keydown", function(e){
+	e.preventDefault();
+})
 function handleKeyDown(keyEvent){
 	if(jumping)return;
 	var validMove=true;
