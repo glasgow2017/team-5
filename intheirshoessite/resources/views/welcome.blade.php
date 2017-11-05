@@ -172,7 +172,7 @@
                                             console.log("learn more");
                                             marker.closePopup();
                                             htmlstr='<div id="TutContainer" style="zoom:0.3;"></div>';
-                                            marker.bindPopup(htmlstr,{maxWidth:100%,closeButton:true}).openPopup();
+                                            marker.bindPopup(htmlstr,{maxWidth:200px,closeButton:true}).openPopup();
                                             init();
                                         });
                                     });
