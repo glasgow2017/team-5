@@ -758,8 +758,8 @@ function actualGameOver()
 {
 	isPaused=true;
 	
-	var htmlstr=" <br> Please look at links below to increase your awareness<br><a href='http://www.unwomen.org/en/what-we-do/ending-violence-against-women/increasing-knowledge-and-awareness'>UN Women</a>\
-		<br><a href='https://www.summer.harvard.edu/inside-summer/gender-inequality-women-workplace'>Harvard Research</a>";
+	var htmlstr=" <br> Please follow the links below to increase your awareness<br><a href='http://www.unwomen.org/en/what-we-do/ending-violence-against-women/increasing-knowledge-and-awareness'>Increasing knowledge and awareness - UN Women</a>\
+		<br><a href='https://www.summer.harvard.edu/inside-summer/gender-inequality-women-workplace'>Harvard Research on Gender Inequality</a>";
 	
 	swal({
 		title: 'Thank you!!',
