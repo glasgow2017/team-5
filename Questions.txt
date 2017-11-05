@@ -37,8 +37,9 @@ A: %answer type: percentage?
 B: 
 C: 
 
-
-
+"Do you think that more than %percentage of young women are employed un your country?"
+A: “Yes!”
+B: “No!”
 
 Underage: “What percentage of teenage women are currently pregnant or have had children in %country?”
 A: %answer type: percentage
@@ -48,5 +49,7 @@ C:
 
 "Which country struggles the most with teenage women being pregnant of having had children?"
 A: %answer type: Country name
-B:
+B: 
 C:
+
+
