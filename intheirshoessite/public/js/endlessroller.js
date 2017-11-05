@@ -758,7 +758,7 @@ function actualGameOver()
 {
 	isPaused=true;
 	var htmlstr="";
-	if(score==0)
+	if(points==0)
 	{
 		htmlstr+=" <br> Please look at links below to understand more<br><a href='http://www.unwomen.org/en/what-we-do/ending-violence-against-women/increasing-knowledge-and-awareness'>Link1</a>";
 	}
