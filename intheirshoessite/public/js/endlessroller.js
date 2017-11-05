@@ -460,10 +460,10 @@ function update(){
 				scoreTree=null;
 				choice = "SH.STA.MMRT";
 			}
-			else(choice=="SH.STA.MMRT")
+			else if(choice=="SH.STA.MMRT")
 			{
 				getData = ["31","225","410","10"];
-				getData = shuffle(getData);
+				opt = shuffle(getData);
 				var inputOptions = new Promise(function (resolve) {
 					setTimeout(function () {
 					resolve({
