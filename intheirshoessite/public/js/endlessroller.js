@@ -425,6 +425,7 @@ function update(){
 				})
 				}
 			}).then(function (result) {
+				console.log(result);
 				isPaused=false;
 				update();
 				upKey = {"keyCode":38};
