@@ -168,12 +168,12 @@
                                                 )
                                                 marker.closePopup();
                                         }
-                                        marker.bindPopup("<button id='learnMore' style='margin-top:10%;margin-left:20%;' class='btn btn-primary'>Learn More </button>", {closeButton: true}).openPopup();
+                                        marker.bindPopup("<p>Every year, hundreds of young women suffer from gender inequality poverty. Let's get together and ? inequality.</p><button id='learnMore' style='margin-top:10%;margin-left:20%;' class='btn btn-primary'>Now step into Our shoes </button>", {closeButton: true}).openPopup();
                                     
                                         $('#learnMore').on("click",function()
                                         {
-                                            console.log("learn more");
                                             marker.closePopup();
+                                            console.log("learn more");
                                             htmlstr='<div id="TutContainer" style="zoom:0.3;"></div>';
                                             marker.bindPopup(htmlstr,{closeButton:true}).openPopup();
                                             init();
@@ -195,11 +195,7 @@
                 });
                 
             });
-
-
     
-                
-            
     
     </script> 
    
@@ -213,6 +209,8 @@
     <script type="text/javascript" src="{{ asset('js/stats.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/OrbitControls.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/endlessroller.js') }}"></script>
+
+    <h3 style="margin-top:5%;text-align:center;"> Thank you for being part of this demonstration and raising awareness together.</h3>
 
 </body>
      
