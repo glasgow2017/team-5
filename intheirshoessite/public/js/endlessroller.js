@@ -445,13 +445,14 @@ function update(){
 				}
 				else
 				{
-					swal(
-						'Oops...',
-						'Sorry you messed up!',
-						'error'
-					  )
-					isPaused=false;
-					update();
+					swal({
+						title: 'Oops...',
+						text: "Sorry you messed up!",
+						type: 'error',
+						}).then(function () {
+							isPaused=false;
+							update();
+						})
 				}
 
 				
