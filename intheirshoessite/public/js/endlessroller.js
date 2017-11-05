@@ -45,7 +45,7 @@ var threeTreeTimer = 10000;
 var scoreTree;
 var health=100;
 
-
+var called=false;
 var iter = 0;
 
 var choice = "SG.LAW.CHMR";
