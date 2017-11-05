@@ -135,7 +135,14 @@
                                                 <div class="radio">\
                                                     <label><input type="radio" name="optradio">'+options[3]+'%</label>\
                                                 </div><br><br>\
-                                                <button id="submit" style="margin-left:25%;">I am sure!</button>';
+                                                <button id="submit" style="margin-left:25%;">I am sure!</button>\
+                                                <script>\
+                                                $("#submit").on("click",function()\
+                                                {\
+                                                    console.log($("input[name=optradio]:checked").val());\
+                                                });\
+                                                </script>\
+                                                ';
                                       
                                     // var whatToSend = '<h3> Your Country is Good, but do you know this one?</h3> ';
                                     initialize(response.lat,response.lon,response.country,htmlstr);
