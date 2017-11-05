@@ -44,6 +44,9 @@ var isPaused=false;
 var threeTreeTimer = 10000;
 var scoreTree;
 
+
+var choice = "SG.LAW.CHMR";
+
 function init() {
 	// set up the scene
 	createScene();
@@ -399,22 +402,25 @@ function update(){
 		}
 		if(score-scoreTree==7 && !(scoreTree==null))
 		{
+			
 			isPaused=true;
 			// inputOptions can be an object or Promise
-			
-
-			var inputOptions = new Promise(function (resolve) {
-				setTimeout(function () {
-				resolve({
-					'#ff0000': 'Red',
-					'#00ff00': 'Green',
-					'#0000ff': 'Blue'
+			if(choices == "SG.LAW.CHMR")
+			{
+				var inputOptions = new Promise(function (resolve) {
+					setTimeout(function () {
+					resolve({
+						'0': 'No!',
+						'1': 'Hell yeah!'
+					})
+					}, 100)
 				})
-				}, 100)
-			})
+			}
+
+			
 			
 			swal({
-				title: 'Select color',
+				title: 'Does your country have law against child marriages?',
 				input: 'radio',
 				inputOptions: inputOptions,
 				inputValidator: function (result) {
@@ -427,11 +433,30 @@ function update(){
 				})
 				}
 			}).then(function (result) {
-				console.log(result);
-				isPaused=false;
-				update();
-				upKey = {"keyCode":38};
-				handleKeyDown(upKey);
+				if(result==countryData)
+				{
+					swal(
+						'Good job!',
+						'You know it!',
+						'success'
+					  )
+					isPaused=false;
+					update();
+					upKey = {"keyCode":38};
+					handleKeyDown(upKey);
+				}
+				else
+				{
+					swal(
+						'Oops...',
+						'Sorry you messed up!',
+						'error'
+					  )
+					isPaused=false;
+					update();
+				}
+
+				
 			})
 			treesInPath=[];
 			treesPool=[];
