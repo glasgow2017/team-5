@@ -765,9 +765,5 @@ function actualGameOver()
 			marker.closePopup();
 		})
 	healthText.remove();
-<<<<<<< HEAD
 	pointsText.remove();
 }
-=======
-}
->>>>>>> 43109418562aa3eeeb15502726df1323c774e369
