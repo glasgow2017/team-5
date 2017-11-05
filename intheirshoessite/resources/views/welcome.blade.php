@@ -80,14 +80,13 @@
 
                     $.get('/data',function(res)
                     {
-                        console.log(res);
-                        $.each( res, function( key, value ) {
-                            if(value.country == response.country)
-                            {
-                                console.log( value.id );
-                            }
-                            
-                            });
+                       for(var i =0;i<res.length;i++)
+                       {
+                           if(res[i].country==response.country)
+                           {
+                               console.log(res[i]);
+                           }
+                       }
                         htmlstr= '<h3> How many girls in Russia go to school? </h3>\
                             <div class="radio">\
                                 <label><input type="radio" name="optradio">52%</label>\
