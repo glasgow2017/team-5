@@ -106,7 +106,6 @@
 
             $(document).ready(function()
             {
-                var points=0;
                 $.get("http://ip-api.com/json", function(response) {
                    
                     $.get('/data',function(res)
@@ -164,8 +163,6 @@
                                                 'success'
                                                 )
                                                 marker.closePopup();
-                                                points+=1;
-                                                pointsText.innerHTML="Score : "+points.toString();
 
                                         }
                                         else
