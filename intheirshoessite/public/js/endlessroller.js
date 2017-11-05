@@ -734,4 +734,5 @@ function actualGameOver()
 		}).then(function () {
 			marker.closePopup();
 		})
+	healthText.remove();
 }
