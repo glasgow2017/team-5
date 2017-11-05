@@ -177,7 +177,7 @@
                                         {
                                             console.log("learn more");
                                             marker.closePopup();
-                                            htmlstr='<div id="TutContainer" style=""></div>';
+                                            htmlstr='<div id="TutContainer" style="zoom:0.3;"></div>';
                                             marker.bindPopup(htmlstr,{closeButton:true}).openPopup();
                                             init();
                                         });
@@ -205,6 +205,8 @@
             
     
     </script> 
+    Health : <div class="#health"></div><br>
+    Score : <div class="#score"></div>
 
     <div id="map" style="width:100%"></div>
     
