@@ -395,6 +395,8 @@ function update(){
 		}
 		if(score-scoreTree==7 && !(scoreTree==null))
 		{
+			treesInPath=[];
+			treesPool=[];
 			createTreesPool();
 			console.log("Create Again");
 			scoreTree=null;
