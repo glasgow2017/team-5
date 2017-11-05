@@ -462,7 +462,65 @@ function update(){
 			}
 			else(choice=="SH.STA.MMRT")
 			{
-				console.log("it will work I guess");
+				getData = ["31","225","410","10"];
+				getData = shuffle(getData);
+				var inputOptions = new Promise(function (resolve) {
+					setTimeout(function () {
+					resolve({
+						'0': opt[0],
+						'1': opt[1],
+						'2': opt[2],
+						'3': opt[3]
+					})
+					}, 100)
+				})
+			
+			swal({
+				title: 'How many maternal deaths per 100,000 people, do you think your country has?',
+				input: 'radio',
+				inputOptions: inputOptions,
+				inputValidator: function (result) {
+				return new Promise(function (resolve, reject) {
+					if (result) {
+					resolve()
+					} else {
+					reject('You need to select something!')
+					}
+				})
+				}
+			}).then(function (result) {
+				if(result==countryData['SG.LAW.CHMR'])
+				{
+					swal({
+						title: 'Yeah!!',
+						text: "You got it right!",
+						type: 'success',
+						}).then(function () {
+							isPaused=false;
+							update();
+							upKey = {"keyCode":38};
+							handleKeyDown(upKey);
+						})
+				}
+				else
+				{
+					swal({
+						title: 'Oops...',
+						text: "Sorry you messed up!",
+						type: 'error',
+						}).then(function () {
+							isPaused=false;
+							update();
+						})
+					}
+				
+				
+				})
+				treesInPath=[];
+				treesPool=[];
+				createTreesPool();
+				scoreTree=null;
+				choice = "SP.MTR.1519.ZS";
 			}
 		}
 
