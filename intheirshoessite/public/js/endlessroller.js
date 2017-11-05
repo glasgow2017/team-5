@@ -394,7 +394,7 @@ function update(){
 			addThreeTrees();
 			scoreTree=score+1;
 		}
-		if(score-scoreTree==7 && !(scoreTree==null))
+		if(score-scoreTree==7 && !(scoreTree==null) && false)
 		{
 			isPaused=true;
 			// inputOptions can be an object or Promise
@@ -424,8 +424,8 @@ function update(){
 			}).then(function (result) {
 				isPaused=false;
 				update();
-				data = {"keyCode":38};
-				handleKeyDown(data);
+				upKey = {"keyCode":38};
+				handleKeyDown(upKey);
 			})
 			scoreTree=null;
 		}
