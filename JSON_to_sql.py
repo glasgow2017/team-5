@@ -21,12 +21,6 @@ def checking_inside_of_dict(dictionary_input, current_list):
 
 
 #MAIN
-#DDDDDDDDDDDDDDDisabled
-#filename = raw_input("Type the filename you want me to open: ")
-#filename = "india_literacy.json"
-#with open(filename) as f:
-#    string_file  = json.loads(f.read())[1]
-
 data = fetch_data.load_all_data()
 
 string_file = fetch_data.load_all_data()[1]
@@ -39,5 +33,3 @@ print list_of_keys
 print string_file[0][list_of_keys[0]]
     
 String_for_SQL = ""
-    
-print(len(string_file))
