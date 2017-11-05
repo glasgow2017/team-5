@@ -726,6 +726,7 @@ function onWindowResize() {
 
 function actualGameOver()
 {
+	isPaused=true;
 	swal({
 		title: 'Thank you!!',
 		text: "It was a pleasure serving you!",
