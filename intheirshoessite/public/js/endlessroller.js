@@ -427,13 +427,13 @@ function update(){
 					setTimeout(function () {
 					resolve({
 						'0': 'No!',
-						'1': 'Yeah!'
+						'1': 'Yes!'
 					})
 					}, 100)
 				})
 			
 			swal({
-				title: 'Does your country have law against child marriages?',
+				title: 'Does your country have any laws against child marriages?',
 				input: 'radio',
 				inputOptions: inputOptions,
 				inputValidator: function (result) {
@@ -441,7 +441,7 @@ function update(){
 					if (result) {
 					resolve()
 					} else {
-					reject('You need to select something!')
+					reject('You need to select something.')
 					}
 				})
 				}
@@ -449,7 +449,7 @@ function update(){
 				if(result==countryData['SG.LAW.CHMR'])
 				{
 					swal({
-						title: 'Yeah!!',
+						title: 'Correct!',
 						text: "You got it right!",
 						type: 'success',
 						}).then(function () {
@@ -496,7 +496,7 @@ function update(){
 				})
 			
 			swal({
-				title: 'How many maternal deaths per 100,000 birth, do you think your country has?',
+				title: 'How many maternal deaths do you think your country has per 100,000 births?',
 				input: 'radio',
 				inputOptions: inputOptions,
 				inputValidator: function (result) {
@@ -504,7 +504,7 @@ function update(){
 					if (result) {
 					resolve()
 					} else {
-					reject('You need to select something!')
+					reject('You need to select something.')
 					}
 				})
 				}
@@ -512,7 +512,7 @@ function update(){
 				if(result==correct)
 				{
 					swal({
-						title: 'Yeah!!',
+						title: 'Correct!',
 						text: "You got it right!",
 						type: 'success',
 						}).then(function () {
@@ -568,7 +568,7 @@ function update(){
 					if (result) {
 					resolve()
 					} else {
-					reject('You need to select something!')
+					reject('You need to select something.')
 					}
 				})
 				}
@@ -576,7 +576,7 @@ function update(){
 				if(result==correct)
 				{
 					swal({
-						title: 'Yeah!!',
+						title: 'Correct!',
 						text: "You got it right!",
 						type: 'success',
 						}).then(function () {
