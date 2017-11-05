@@ -1,5 +1,5 @@
 <?php
-
+use App\dataset1;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('/game', function() {
     return view('EndlessRoller');
 });
+
+
+Route::get('/data', function(){
+    $data = App\dataset1::all();
+    return json_encode($data);
+});
+
